@@ -45,7 +45,7 @@ jobs:
 
       # ── Accessibility audit (axe-core via Storybook test runner) ──────────
       - name: Install Playwright browsers
-        run: cd apps/storybook && pnpm exec playwright install chromium --with-deps
+        run: pnpm --filter storybook exec playwright install chromium --with-deps
 
       - name: Accessibility tests
         run: |
