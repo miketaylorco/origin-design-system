@@ -44,6 +44,9 @@ jobs:
         run: pnpm turbo build --filter=storybook
 
       # ── Accessibility audit (axe-core via Storybook test runner) ──────────
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install chromium --with-deps
+
       - name: Accessibility tests
         run: |
           npx serve -s apps/storybook/storybook-static -l 6006 &
