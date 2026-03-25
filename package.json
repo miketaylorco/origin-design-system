@@ -1,0 +1,31 @@
+{
+  "name": "origin-design-system",
+  "private": true,
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "lint": "turbo lint",
+    "sync-tokens": "tsx scripts/sync-tokens.ts",
+    "build-tokens": "tsx scripts/build-tokens.ts",
+    "drift-check": "tsx scripts/drift-check.ts",
+    "audit": "tsx scripts/audit.ts",
+    "storybook": "turbo dev --filter=storybook"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.9",
+    "@types/ws": "^8.5.14",
+    "dotenv": "^16.4.7",
+    "ws": "^8.18.1",
+    "tsx": "^4.19.2",
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.3"
+  },
+  "packageManager": "pnpm@9.15.2"
+}

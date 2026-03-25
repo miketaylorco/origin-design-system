@@ -1,0 +1,139 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
+
+<Meta title="Foundation/Colors" />
+
+# Colors
+
+The Origin design system uses a three-tier color token architecture:
+
+- **T1 Primitive** — the raw palette (50–950 scales per color family)
+- **T2 Semantic** — purpose-driven aliases with light/dark mode variants
+- **T3 Component** — component-specific overrides (defined per component)
+
+Toggle **Light / Dark** in the toolbar above to see semantic token values switch.
+
+---
+
+## Semantic — Surface
+
+<ColorPalette>
+  <ColorItem
+    title="background"
+    subtitle="Surface backgrounds"
+    colors={{
+      default: "var(--background-default)",
+      raised: "var(--background-raised)",
+      page: "var(--background-page)",
+      subdued: "var(--background-subdued)",
+    }}
+  />
+  <ColorItem
+    title="text"
+    subtitle="Text colors"
+    colors={{
+      default: "var(--text-default)",
+      page: "var(--text-page)",
+      subdued: "var(--text-subdued)",
+      subtle: "var(--text-subtle)",
+    }}
+  />
+  <ColorItem
+    title="border"
+    subtitle="Border colors"
+    colors={{
+      default: "var(--border-default)",
+      subdued: "var(--border-subdued)",
+      subtle: "var(--border-subtle)",
+      strong: "var(--border-strong)",
+    }}
+  />
+</ColorPalette>
+
+---
+
+## Semantic — Interaction
+
+<ColorPalette>
+  <ColorItem
+    title="primary"
+    subtitle="Primary action states"
+    colors={{
+      "bg/default": "var(--interaction-primary-background-default)",
+      "bg/hover": "var(--interaction-primary-background-hover)",
+      "bg/active": "var(--interaction-primary-background-active)",
+      "bg/disabled": "var(--interaction-primary-background-disabled)",
+    }}
+  />
+  <ColorItem
+    title="secondary"
+    subtitle="Secondary action states"
+    colors={{
+      "bg/default": "var(--interaction-secondary-background-default)",
+      "bg/hover": "var(--interaction-secondary-background-hover)",
+      "bg/active": "var(--interaction-secondary-background-active)",
+      "bg/disabled": "var(--interaction-secondary-background-disabled)",
+    }}
+  />
+</ColorPalette>
+
+---
+
+## Semantic — Utility
+
+<ColorPalette>
+  <ColorItem
+    title="success"
+    subtitle=""
+    colors={{
+      background: "var(--utility-success-background)",
+      text: "var(--utility-success-text)",
+      border: "var(--utility-success-border)",
+    }}
+  />
+  <ColorItem
+    title="warning"
+    subtitle=""
+    colors={{
+      background: "var(--utility-warning-background)",
+      text: "var(--utility-warning-text)",
+      border: "var(--utility-warning-border)",
+    }}
+  />
+  <ColorItem
+    title="error"
+    subtitle=""
+    colors={{
+      background: "var(--utility-error-background)",
+      text: "var(--utility-error-text)",
+      border: "var(--utility-error-border)",
+    }}
+  />
+  <ColorItem
+    title="info"
+    subtitle=""
+    colors={{
+      background: "var(--utility-info-background)",
+      text: "var(--utility-info-text)",
+      border: "var(--utility-info-border)",
+    }}
+  />
+</ColorPalette>
+
+---
+
+## Primitive — Brand
+
+<ColorPalette>
+  <ColorItem title="lilac" subtitle="brand/lilac" colors={{ "50": "var(--brand-lilac-50)", "100": "var(--brand-lilac-100)", "200": "var(--brand-lilac-200)", "300": "var(--brand-lilac-300)", "400": "var(--brand-lilac-400)", "500": "var(--brand-lilac-500)", "600": "var(--brand-lilac-600)", "700": "var(--brand-lilac-700)", "800": "var(--brand-lilac-800)", "900": "var(--brand-lilac-900)", "950": "var(--brand-lilac-950)" }} />
+  <ColorItem title="rose" subtitle="brand/rose" colors={{ "50": "var(--brand-rose-50)", "100": "var(--brand-rose-100)", "200": "var(--brand-rose-200)", "300": "var(--brand-rose-300)", "400": "var(--brand-rose-400)", "500": "var(--brand-rose-500)", "600": "var(--brand-rose-600)", "700": "var(--brand-rose-700)", "800": "var(--brand-rose-800)", "900": "var(--brand-rose-900)", "950": "var(--brand-rose-950)" }} />
+  <ColorItem title="sunset" subtitle="brand/sunset" colors={{ "50": "var(--brand-sunset-50)", "100": "var(--brand-sunset-100)", "300": "var(--brand-sunset-300)", "500": "var(--brand-sunset-500)", "700": "var(--brand-sunset-700)", "900": "var(--brand-sunset-900)" }} />
+  <ColorItem title="honey" subtitle="brand/honey" colors={{ "50": "var(--brand-honey-50)", "100": "var(--brand-honey-100)", "300": "var(--brand-honey-300)", "500": "var(--brand-honey-500)", "700": "var(--brand-honey-700)", "900": "var(--brand-honey-900)" }} />
+  <ColorItem title="lime" subtitle="brand/lime" colors={{ "50": "var(--brand-lime-50)", "100": "var(--brand-lime-100)", "300": "var(--brand-lime-300)", "500": "var(--brand-lime-500)", "700": "var(--brand-lime-700)", "900": "var(--brand-lime-900)" }} />
+  <ColorItem title="emerald" subtitle="brand/emerald" colors={{ "50": "var(--brand-emerald-50)", "100": "var(--brand-emerald-100)", "300": "var(--brand-emerald-300)", "500": "var(--brand-emerald-500)", "700": "var(--brand-emerald-700)", "900": "var(--brand-emerald-900)" }} />
+  <ColorItem title="aqua" subtitle="brand/aqua" colors={{ "50": "var(--brand-aqua-50)", "100": "var(--brand-aqua-100)", "300": "var(--brand-aqua-300)", "500": "var(--brand-aqua-500)", "700": "var(--brand-aqua-700)", "900": "var(--brand-aqua-900)" }} />
+  <ColorItem title="cerulean" subtitle="brand/cerulean" colors={{ "50": "var(--brand-cerulean-50)", "100": "var(--brand-cerulean-100)", "300": "var(--brand-cerulean-300)", "500": "var(--brand-cerulean-500)", "700": "var(--brand-cerulean-700)", "900": "var(--brand-cerulean-900)" }} />
+  <ColorItem title="blue" subtitle="brand/blue" colors={{ "50": "var(--brand-blue-50)", "100": "var(--brand-blue-100)", "300": "var(--brand-blue-300)", "500": "var(--brand-blue-500)", "700": "var(--brand-blue-700)", "900": "var(--brand-blue-900)" }} />
+  <ColorItem title="purple" subtitle="brand/purple" colors={{ "50": "var(--brand-purple-50)", "100": "var(--brand-purple-100)", "300": "var(--brand-purple-300)", "500": "var(--brand-purple-500)", "700": "var(--brand-purple-700)", "900": "var(--brand-purple-900)" }} />
+  <ColorItem title="pink" subtitle="brand/pink" colors={{ "50": "var(--brand-pink-50)", "100": "var(--brand-pink-100)", "300": "var(--brand-pink-300)", "500": "var(--brand-pink-500)", "700": "var(--brand-pink-700)", "900": "var(--brand-pink-900)" }} />
+  <ColorItem title="gray" subtitle="neutral/gray" colors={{ "50": "var(--neutral-gray-50)", "100": "var(--neutral-gray-100)", "200": "var(--neutral-gray-200)", "300": "var(--neutral-gray-300)", "400": "var(--neutral-gray-400)", "500": "var(--neutral-gray-500)", "600": "var(--neutral-gray-600)", "700": "var(--neutral-gray-700)", "800": "var(--neutral-gray-800)", "900": "var(--neutral-gray-900)", "950": "var(--neutral-gray-950)" }} />
+</ColorPalette>

@@ -1,0 +1,100 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Foundation/Spacing" />
+
+# Spacing
+
+Origin uses semantic spacing tokens in three categories:
+
+- **Inset** — padding inside components
+- **Gap** — space between items in a flow/grid
+- **Stack** — vertical space between stacked elements
+
+All values are responsive (Desktop / Tablet / Mobile). Resize the viewport to observe.
+
+---
+
+## Inset
+
+export const insetSizes = ["xs", "sm", "md", "lg", "xl"];
+
+<div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+  {["xs", "sm", "md", "lg", "xl"].map((size) => (
+    <div key={size} style={{ display: "flex", alignItems: "center", gap: 16 }}>
+      <div style={{ width: 120, fontSize: "var(--font-size-body-sm)", color: "var(--text-subtle)", fontFamily: "monospace" }}>
+        inset/{size}
+      </div>
+      <div style={{
+        background: "var(--background-raised)",
+        border: "1px solid var(--border-default)",
+        borderRadius: "var(--radius-sm)",
+        padding: `var(--space-inset-${size})`,
+        display: "inline-block",
+      }}>
+        <div style={{ background: "var(--interaction-primary-background-default)", width: 40, height: 8, borderRadius: 2 }} />
+      </div>
+      <div style={{ fontSize: "var(--font-size-body-sm)", color: "var(--text-subtle)", fontFamily: "monospace" }}>
+        <code>var(--space-inset-{size})</code>
+      </div>
+    </div>
+  ))}
+</div>
+
+---
+
+## Gap
+
+<div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+  {["xs", "sm", "md", "lg"].map((size) => (
+    <div key={size} style={{ display: "flex", alignItems: "center", gap: 16 }}>
+      <div style={{ width: 120, fontSize: "var(--font-size-body-sm)", color: "var(--text-subtle)", fontFamily: "monospace" }}>
+        gap/{size}
+      </div>
+      <div style={{ display: "flex", gap: `var(--space-gap-${size})`, alignItems: "center" }}>
+        {[1, 2, 3].map((i) => (
+          <div key={i} style={{ background: "var(--interaction-primary-background-default)", width: 32, height: 32, borderRadius: "var(--radius-xs)" }} />
+        ))}
+      </div>
+      <div style={{ fontSize: "var(--font-size-body-sm)", color: "var(--text-subtle)", fontFamily: "monospace" }}>
+        <code>var(--space-gap-{size})</code>
+      </div>
+    </div>
+  ))}
+</div>
+
+---
+
+## Stack
+
+<div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+  {["sm", "md", "lg", "xl"].map((size) => (
+    <div key={size} style={{ display: "flex", alignItems: "flex-start", gap: 16 }}>
+      <div style={{ width: 120, fontSize: "var(--font-size-body-sm)", color: "var(--text-subtle)", fontFamily: "monospace", paddingTop: 4 }}>
+        stack/{size}
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: `var(--space-stack-${size})` }}>
+        {[1, 2].map((i) => (
+          <div key={i} style={{ background: "var(--background-raised)", border: "1px solid var(--border-default)", borderRadius: "var(--radius-sm)", width: 120, height: 20 }} />
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
+
+---
+
+## Border radius
+
+<div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "flex-end" }}>
+  {["none", "xs", "sm", "md", "lg", "xl", "full"].map((size) => (
+    <div key={size} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+      <div style={{
+        width: 64,
+        height: 64,
+        background: "var(--interaction-primary-background-default)",
+        borderRadius: size === "none" ? 0 : size === "full" ? "9999px" : `var(--radius-${size})`,
+      }} />
+      <code style={{ fontSize: "var(--font-size-body-xs)", color: "var(--text-subtle)" }}>{size}</code>
+    </div>
+  ))}
+</div>

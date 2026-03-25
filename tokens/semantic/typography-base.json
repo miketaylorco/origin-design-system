@@ -1,0 +1,20 @@
+{
+  "letter-spacing": {
+    "body": {
+      "tight":   { "$value": "{letter-spacing.n100}" },
+      "snug":    { "$value": "{letter-spacing.n50}" },
+      "none":    { "$value": "{letter-spacing.0}" },
+      "relaxed": { "$value": "{letter-spacing.50}" },
+      "loose":   { "$value": "{letter-spacing.100}" },
+      "max":     { "$value": "{letter-spacing.150}" }
+    },
+    "headings": {
+      "tight":   { "$value": "{letter-spacing.n100}" },
+      "snug":    { "$value": "{letter-spacing.n50}" },
+      "none":    { "$value": "{letter-spacing.0}" },
+      "relaxed": { "$value": "{letter-spacing.50}" },
+      "loose":   { "$value": "{letter-spacing.100}" },
+      "max":     { "$value": "{letter-spacing.150}" }
+    }
+  }
+}

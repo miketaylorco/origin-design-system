@@ -1,0 +1,23 @@
+{
+  "space": {
+    "inset": {
+      "xs": { "$value": "{space.positive.50}" },
+      "sm": { "$value": "{space.positive.100}" },
+      "md": { "$value": "{space.positive.150}" },
+      "lg": { "$value": "{space.positive.200}" },
+      "xl": { "$value": "{space.positive.300}" }
+    },
+    "gap": {
+      "xs": { "$value": "{space.positive.50}" },
+      "sm": { "$value": "{space.positive.100}" },
+      "md": { "$value": "{space.positive.200}" },
+      "lg": { "$value": "{space.positive.300}" }
+    },
+    "stack": {
+      "sm": { "$value": "{space.positive.200}" },
+      "md": { "$value": "{space.positive.400}" },
+      "lg": { "$value": "{space.positive.600}" },
+      "xl": { "$value": "{space.positive.1000}" }
+    }
+  }
+}

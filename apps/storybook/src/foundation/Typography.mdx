@@ -1,0 +1,66 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Foundation/Typography" />
+
+# Typography
+
+Origin uses two type families with a responsive scale (Desktop / Tablet / Mobile).
+Resize the viewport to see the scale adapt.
+
+---
+
+## Type scale — Heading
+
+export const headingSizes = ["2xl", "xl", "lg", "md", "sm", "xs"];
+
+<div style={{ display: "flex", flexDirection: "column", gap: "var(--space-stack-md)" }}>
+  {["2xl", "xl", "lg", "md", "sm", "xs"].map((size) => (
+    <div key={size} style={{ borderBottom: "1px solid var(--border-subtle)", paddingBottom: "var(--space-stack-sm)" }}>
+      <p style={{ fontSize: "var(--font-size-heading-xs)", color: "var(--text-subtle)", marginBottom: 4 }}>
+        heading/{size}
+      </p>
+      <p style={{
+        fontFamily: "var(--font-family-heading)",
+        fontSize: `var(--font-size-heading-${size})`,
+        lineHeight: `var(--line-height-heading-${size})`,
+        fontWeight: 700,
+        color: "var(--text-default)",
+        margin: 0,
+      }}>
+        The quick brown fox
+      </p>
+    </div>
+  ))}
+</div>
+
+---
+
+## Type scale — Body
+
+<div style={{ display: "flex", flexDirection: "column", gap: "var(--space-stack-md)" }}>
+  {["2xl", "xl", "lg", "md", "sm", "xs"].map((size) => (
+    <div key={size} style={{ borderBottom: "1px solid var(--border-subtle)", paddingBottom: "var(--space-stack-sm)" }}>
+      <p style={{ fontSize: "var(--font-size-heading-xs)", color: "var(--text-subtle)", marginBottom: 4 }}>
+        body/{size}
+      </p>
+      <p style={{
+        fontFamily: "var(--font-family-body)",
+        fontSize: `var(--font-size-body-${size})`,
+        lineHeight: `var(--line-height-body-${size})`,
+        color: "var(--text-default)",
+        margin: 0,
+      }}>
+        The quick brown fox jumps over the lazy dog. Sphinx of black quartz, judge my vow.
+      </p>
+    </div>
+  ))}
+</div>
+
+---
+
+## Font families
+
+| Token | Value |
+|---|---|
+| `--font-family-heading` | `var(--font-family-heading)` |
+| `--font-family-body` | `var(--font-family-body)` |

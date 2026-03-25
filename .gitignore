@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+.turbo/
+*.tsbuildinfo
+
+# Generated token outputs (built from tokens/ source)
+packages/tokens/css/
+packages/tokens/js/
+packages/tokens/tailwind/
+
+# Storybook
+storybook-static/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.idea/
+*.swp

@@ -1,0 +1,19 @@
+{
+  "name": "@origin/tokens",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./css": "./css/tokens.css",
+    "./tailwind": "./tailwind/preset.js",
+    "./js": "./js/tokens.js"
+  },
+  "scripts": {
+    "build": "cd ../.. && tsx scripts/build-tokens.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.3.3",
+    "typescript": "^5.7.3"
+  }
+}
