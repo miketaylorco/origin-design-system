@@ -7,7 +7,7 @@ import { cn } from "../../lib/cn.js";
 const buttonVariants = cva(
   // Base styles — shared across all variants
   [
-    "inline-flex items-center justify-center gap-[var(--space-gap-xs)]",
+    "inline-flex items-center justify-center gap-[var(--button-spacing-gap)]",
     "font-medium leading-none whitespace-nowrap select-none",
     "border transition-colors duration-150",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
@@ -52,16 +52,16 @@ const buttonVariants = cva(
       },
       size: {
         sm: [
-          "h-8 px-[var(--space-inset-sm)] text-[var(--font-size-body-sm)]",
-          "rounded-[var(--radius-sm)]",
+          "px-[var(--button-spacing-padding-x-sm)] py-[var(--button-spacing-padding-y-sm)] text-[var(--button-font-size-sm)]",
+          "rounded-[var(--button-radius-sm)]",
         ],
         md: [
-          "h-10 px-[var(--space-inset-md)] text-[var(--font-size-body-md)]",
-          "rounded-[var(--radius-sm)]",
+          "px-[var(--button-spacing-padding-x-md)] py-[var(--button-spacing-padding-y-md)] text-[var(--button-font-size-md)]",
+          "rounded-[var(--button-radius-sm)]",
         ],
         lg: [
-          "h-12 px-[var(--space-inset-lg)] text-[var(--font-size-body-lg)]",
-          "rounded-[var(--radius-md)]",
+          "px-[var(--button-spacing-padding-x-lg)] py-[var(--button-spacing-padding-y-lg)] text-[var(--button-font-size-lg)]",
+          "rounded-[var(--button-radius-lg)]",
         ],
       },
     },

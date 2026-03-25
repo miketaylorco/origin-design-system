@@ -1,7 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe, toHaveNoViolations } from "jest-axe";
 import { describe, it, expect, vi } from "vitest";
 import { Button } from "./Button.js";
+
+expect.extend(toHaveNoViolations);
 
 describe("Button", () => {
   it("renders children", () => {
@@ -49,5 +52,20 @@ describe("Button", () => {
     btn.focus();
     await userEvent.keyboard("{Enter}");
     expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  it("has no axe violations", async () => {
+    const { container } = render(<Button>Click me</Button>);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("has no axe violations when disabled", async () => {
+    const { container } = render(<Button disabled>Click me</Button>);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("has no axe violations when loading", async () => {
+    const { container } = render(<Button loading>Saving</Button>);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

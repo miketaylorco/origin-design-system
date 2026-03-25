@@ -150,6 +150,8 @@ function buildTailwindPreset(): string {
           );
           if (type === "color")
             setNested(colors, ["primitive", ...p], cssVar);
+          else if (type === "string" && p.some((x) => x === "font-family"))
+            setNested(fontFamily, p, cssVar);
         }
       } else if (typeof val === "object" && val !== null) {
         walk(val as Record<string, unknown>, p, tier);
@@ -174,6 +176,16 @@ function buildTailwindPreset(): string {
         "semantic"
       );
     }
+  }
+
+  // Walk primitive typography for font-family (STRING tokens not in semantic files)
+  const primTypography = path.join(tokensDir, "primitive/typography.json");
+  if (fs.existsSync(primTypography)) {
+    walk(
+      JSON.parse(fs.readFileSync(primTypography, "utf8")) as Record<string, unknown>,
+      [],
+      "primitive"
+    );
   }
 
   // Walk primitive color for the primitive.* namespace
@@ -308,20 +320,31 @@ async function main() {
   );
   console.log("  ✔ packages/tokens/css/responsive-mobile.css");
 
-  // ── 5. Combined tokens.css ───────────────────────────────────────────────────
-  fs.writeFileSync(
-    path.join(cssOut, "tokens.css"),
-    [
-      `@import "./primitive.css";`,
-      `@import "./semantic-base.css";`,
-      `@import "./semantic-dark.css";`,
-      `@import "./responsive-tablet.css";`,
-      `@import "./responsive-mobile.css";`,
-    ].join("\n") + "\n"
-  );
+  // ── 5. Component tokens (manual CSS — one file per component) ───────────────
+  const componentDir = path.join(tokensDir, "component");
+  const componentFiles = fs.existsSync(componentDir)
+    ? fs.readdirSync(componentDir).filter((f) => f.endsWith(".json")).map((f) => path.join(componentDir, f))
+    : [];
+  if (componentFiles.length > 0) {
+    console.log("Building component tokens…");
+    const componentCss = buildCssBlock(componentFiles, ":root");
+    fs.writeFileSync(path.join(cssOut, "component.css"), componentCss + "\n");
+    console.log("  ✔ packages/tokens/css/component.css");
+  }
+
+  // ── 6. Combined tokens.css ───────────────────────────────────────────────────
+  const imports = [
+    `@import "./primitive.css";`,
+    `@import "./semantic-base.css";`,
+    `@import "./semantic-dark.css";`,
+    `@import "./responsive-tablet.css";`,
+    `@import "./responsive-mobile.css";`,
+  ];
+  if (componentFiles.length > 0) imports.push(`@import "./component.css";`);
+  fs.writeFileSync(path.join(cssOut, "tokens.css"), imports.join("\n") + "\n");
   console.log("  ✔ packages/tokens/css/tokens.css");
 
-  // ── 6. Tailwind preset ───────────────────────────────────────────────────────
+  // ── 7. Tailwind preset ───────────────────────────────────────────────────────
   console.log("Building Tailwind preset…");
   fs.writeFileSync(path.join(twOut, "preset.js"), buildTailwindPreset());
   fs.writeFileSync(
