@@ -33,19 +33,19 @@ jobs:
 
       # ── Static analysis ───────────────────────────────────────────────────
       - name: Type check
-        run: pnpm turbo typecheck
+        run: pnpm turbo typecheck --ui=stream
 
       # ── Tests ─────────────────────────────────────────────────────────────
       - name: Unit tests
-        run: pnpm turbo test
+        run: pnpm turbo test --ui=stream
 
       # ── Storybook build ───────────────────────────────────────────────────
       - name: Build Storybook
-        run: pnpm turbo build --filter=storybook
+        run: pnpm turbo build --filter=storybook --ui=stream
 
       # ── Accessibility audit (axe-core via Storybook test runner) ──────────
       - name: Install Playwright browsers
-        run: pnpm exec playwright install chromium --with-deps
+        run: cd apps/storybook && pnpm exec playwright install chromium --with-deps
 
       - name: Accessibility tests
         run: |
