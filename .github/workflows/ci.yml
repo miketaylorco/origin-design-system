@@ -46,8 +46,9 @@ jobs:
       # ── Accessibility audit (axe-core via Storybook test runner) ──────────
       - name: Accessibility tests
         run: |
-          cd apps/storybook
-          pnpm test-storybook --url http://localhost:6006 --ci
+          npx serve -s apps/storybook/storybook-static -l 6006 &
+          npx wait-on http://localhost:6006
+          cd apps/storybook && pnpm test-storybook --url http://localhost:6006 --ci
         env:
           CI: true
 
