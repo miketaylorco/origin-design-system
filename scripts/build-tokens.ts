@@ -3,15 +3,20 @@
  *
  * Builds token outputs in packages/tokens/ from the JSON source in tokens/.
  *
- * Uses two separate Style Dictionary instances to avoid token path collisions
- * between modes (light/dark, desktop/tablet/mobile):
+ * Token tier structure (after hiddenFromPublishing filtering):
+ *   T1 Primitive  — tokens/primitive/typography.json (font-family, font-weight only;
+ *                   color and dimension primitives are hidden in Figma and inlined
+ *                   into semantic tokens at sync time)
+ *   T2 Semantic   — tokens/semantic/** (raw values; no primitive alias references)
+ *   T3 Component  — tokens/component/** (may alias semantic tokens)
+ *
+ * Uses two Style Dictionary instances:
  *
  *   Instance 1 — Primitives
- *     source:  tokens/primitive/**
- *     outputs: css/primitive.css, js/tokens.js, tailwind/preset.js
+ *     source:  tokens/primitive/typography.json
+ *     outputs: css/primitive.css, js/tokens.js
  *
  *   Instance 2 — Semantic base (light + desktop)
- *     include: tokens/primitive/** (available for ref resolution, not emitted)
  *     source:  tokens/semantic/color.light + typography/dimensions base + desktop
  *     outputs: css/semantic-base.css
  *
@@ -188,16 +193,6 @@ function buildTailwindPreset(): string {
     );
   }
 
-  // Walk primitive color for the primitive.* namespace
-  const primColor = path.join(tokensDir, "primitive/color.json");
-  if (fs.existsSync(primColor)) {
-    walk(
-      JSON.parse(fs.readFileSync(primColor, "utf8")) as Record<string, unknown>,
-      [],
-      "primitive"
-    );
-  }
-
   const preset = {
     theme: {
       extend: {
@@ -227,7 +222,7 @@ async function main() {
   // ── 1. Primitives (Style Dictionary) ────────────────────────────────────────
   console.log("Building primitives…");
   const sdPrimitives = new StyleDictionary({
-    source: ["tokens/primitive/**/*.json"],
+    source: ["tokens/primitive/typography.json"],
     platforms: {
       css: {
         transformGroup: "css",
@@ -257,7 +252,6 @@ async function main() {
   // source  = semantic base files (emitted)
   console.log("Building semantic base (light/desktop)…");
   const sdBase = new StyleDictionary({
-    include: ["tokens/primitive/**/*.json"],
     source: [
       "tokens/semantic/color.light.json",
       "tokens/semantic/typography-scale.desktop.json",

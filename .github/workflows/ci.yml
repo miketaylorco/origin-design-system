@@ -1,9 +1,9 @@
 name: CI
 
+# CI is currently disabled — parked for later work.
+# Re-enable by restoring: on: pull_request / push: branches: [main]
 on:
-  pull_request:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

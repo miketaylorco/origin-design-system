@@ -1,23 +1,62 @@
 {
   "space": {
     "inset": {
-      "xs": { "$value": "{space.positive.50}" },
-      "sm": { "$value": "{space.positive.100}" },
-      "md": { "$value": "{space.positive.150}" },
-      "lg": { "$value": "{space.positive.200}" },
-      "xl": { "$value": "{space.positive.300}" }
+      "sm": {
+        "$type": "dimension",
+        "$value": "8px"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "12px"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "xs": {
+        "$type": "dimension",
+        "$value": "4px"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "24px"
+      }
     },
     "gap": {
-      "xs": { "$value": "{space.positive.50}" },
-      "sm": { "$value": "{space.positive.100}" },
-      "md": { "$value": "{space.positive.200}" },
-      "lg": { "$value": "{space.positive.300}" }
+      "sm": {
+        "$type": "dimension",
+        "$value": "8px"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "xs": {
+        "$type": "dimension",
+        "$value": "4px"
+      }
     },
     "stack": {
-      "sm": { "$value": "{space.positive.200}" },
-      "md": { "$value": "{space.positive.400}" },
-      "lg": { "$value": "{space.positive.600}" },
-      "xl": { "$value": "{space.positive.1000}" }
+      "sm": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "48px"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "80px"
+      }
     }
   }
 }

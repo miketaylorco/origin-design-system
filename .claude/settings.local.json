@@ -39,7 +39,14 @@
       "Bash(find /Users/miketaylor -name *.mcp.json -o -name .mcp.json)",
       "Bash(find /Users/miketaylor -name figma-console*)",
       "Bash(find /Users/miketaylor -path */figma-console* -name *.js)",
-      "Bash(find /Users/miketaylor/Library/Application Support/figma-desktop -name *.js)"
+      "Bash(find /Users/miketaylor/Library/Application Support/figma-desktop -name *.js)",
+      "Bash(LOG_VERBOSITY=verbose pnpm build-tokens)",
+      "Bash(find /Users/miketaylor/Library -path *figma*console* -name *.js)",
+      "Bash(npx --yes which figma-console-mcp)",
+      "Bash(pnpm exec:*)",
+      "mcp__figma-console__figma_clear_console",
+      "mcp__figma-console__figma_watch_console",
+      "Bash(node:*)"
     ]
   }
 }

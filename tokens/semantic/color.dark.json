@@ -1,95 +1,259 @@
 {
   "background": {
-    "default": { "$value": "{neutral.gray.950}" },
-    "raised":  { "$value": "{neutral.gray.900}" },
-    "page":    { "$value": "{background.default}" },
-    "subdued": { "$value": "{base.black}" }
+    "default": {
+      "$type": "color",
+      "$value": "#0c0b0a"
+    },
+    "raised": {
+      "$type": "color",
+      "$value": "#181515"
+    },
+    "page": {
+      "$value": "{background.default}"
+    },
+    "subdued": {
+      "$type": "color",
+      "$value": "#000000"
+    }
   },
   "text": {
-    "default": { "$value": "{neutral.gray.50}" },
-    "page":    { "$value": "{text.default}" },
-    "subdued": { "$value": "{neutral.gray.400}" },
-    "subtle":  { "$value": "{neutral.gray.500}" }
+    "default": {
+      "$type": "color",
+      "$value": "#f9f8f8"
+    },
+    "page": {
+      "$value": "{text.default}"
+    },
+    "subdued": {
+      "$type": "color",
+      "$value": "#aea7a6"
+    },
+    "subtle": {
+      "$type": "color",
+      "$value": "#938988"
+    }
   },
   "border": {
-    "default": { "$value": "{neutral.gray.500}" },
-    "subdued": { "$value": "{neutral.gray.700}" },
-    "subtle":  { "$value": "{neutral.gray.800}" },
-    "strong":  { "$value": "{neutral.gray.300}" }
+    "default": {
+      "$type": "color",
+      "$value": "#938988"
+    },
+    "subdued": {
+      "$type": "color",
+      "$value": "#4d4847"
+    },
+    "subtle": {
+      "$type": "color",
+      "$value": "#302c2c"
+    },
+    "strong": {
+      "$type": "color",
+      "$value": "#cbc6c6"
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "#0099cd"
+    }
   },
   "utility": {
     "success": {
-      "background": { "$value": "{utility.success.900}" },
-      "text":       { "$value": "{utility.success.400}" },
-      "border":     { "$value": "{utility.success.600}" }
+      "background": {
+        "$type": "color",
+        "$value": "#001d02"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "#17cc32"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "#008316"
+      }
     },
     "warning": {
-      "background": { "$value": "{utility.warning.900}" },
-      "text":       { "$value": "{utility.warning.300}" },
-      "border":     { "$value": "{utility.warning.600}" }
+      "background": {
+        "$type": "color",
+        "$value": "#221200"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "#ffaf00"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "#945e00"
+      }
     },
     "error": {
-      "background": { "$value": "{utility.error.900}" },
-      "text":       { "$value": "{utility.error.300}" },
-      "border":     { "$value": "{utility.error.600}" }
+      "background": {
+        "$type": "color",
+        "$value": "#320104"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "#ffaea9"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "#c80b29"
+      }
     },
     "info": {
-      "background": { "$value": "{utility.info.900}" },
-      "text":       { "$value": "{utility.info.300}" },
-      "border":     { "$value": "{utility.info.600}" }
+      "background": {
+        "$type": "color",
+        "$value": "#001536"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "#a6cbfa"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "#0067d7"
+      }
     }
   },
   "interaction": {
     "primary": {
       "background": {
-        "default":  { "$value": "{brand.lime.300}" },
-        "hover":    { "$value": "{brand.lime.400}" },
-        "active":   { "$value": "{brand.lime.400}" },
-        "disabled": { "$value": "{neutral.gray.800}" }
+        "default": {
+          "$type": "color",
+          "$value": "#c5d43a"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#9ca825"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#9ca825"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "#302c2c"
+        }
       },
       "text": {
-        "default":  { "$value": "{neutral.gray.800}" },
-        "hover":    { "$value": "{neutral.gray.950}" },
-        "active":   { "$value": "{neutral.gray.950}" },
-        "disabled": { "$value": "{neutral.gray.400}" }
+        "default": {
+          "$type": "color",
+          "$value": "#302c2c"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "#aea7a6"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#0c0b0a"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#0c0b0a"
+        }
       },
       "border": {
-        "default":  { "$value": "{brand.lime.50}" },
-        "hover":    { "$value": "{brand.lime.100}" },
-        "active":   { "$value": "{brand.lime.100}" },
-        "disabled": { "$value": "{neutral.gray.700}" }
-      }
-    },
-    "secondary": {
-      "background": {
-        "default":  { "$value": "{neutral.gray.950}" },
-        "hover":    { "$value": "{brand.lime.400}" },
-        "active":   { "$value": "{brand.lime.400}" },
-        "disabled": { "$value": "{neutral.gray.800}" }
-      },
-      "text": {
-        "default":  { "$value": "{neutral.gray.50}" },
-        "hover":    { "$value": "{neutral.gray.950}" },
-        "active":   { "$value": "{neutral.gray.950}" },
-        "disabled": { "$value": "{neutral.gray.400}" }
-      },
-      "border": {
-        "default":  { "$value": "{brand.lime.200}" },
-        "hover":    { "$value": "{brand.lime.100}" },
-        "active":   { "$value": "{brand.lime.100}" },
-        "disabled": { "$value": "{neutral.gray.700}" }
+        "default": {
+          "$type": "color",
+          "$value": "#f7fdd4"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#effd95"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#effd95"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "#4d4847"
+        }
       }
     },
     "ghost": {
       "background": {
-        "hover":  { "$value": "{brand.lime.400}" },
-        "active": { "$value": "{brand.lime.400}" }
+        "hover": {
+          "$type": "color",
+          "$value": "#9ca825"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#9ca825"
+        }
       },
       "text": {
-        "default":  { "$value": "{neutral.gray.50}" },
-        "hover":    { "$value": "{neutral.gray.950}" },
-        "active":   { "$value": "{neutral.gray.50}" },
-        "disabled": { "$value": "{neutral.gray.500}" }
+        "default": {
+          "$type": "color",
+          "$value": "#f9f8f8"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#0c0b0a"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#f9f8f8"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "#938988"
+        }
+      }
+    },
+    "secondary": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "#0c0b0a"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#9ca825"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#9ca825"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "#302c2c"
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "#f9f8f8"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#0c0b0a"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#0c0b0a"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "#aea7a6"
+        }
+      },
+      "border": {
+        "default": {
+          "$type": "color",
+          "$value": "#deee4a"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#effd95"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#effd95"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "#4d4847"
+        }
       }
     }
   }

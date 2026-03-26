@@ -1,43 +1,46 @@
 {
   "font-family": {
-    "body":    { "$type": "string", "$value": "Onest", "$description": "Font family for body text" },
-    "heading": { "$type": "string", "$value": "Onest", "$description": "Font family for headings" }
+    "body": {
+      "$type": "string",
+      "$value": "Onest",
+      "$description": "Font family for body text"
+    },
+    "heading": {
+      "$type": "string",
+      "$value": "Onest",
+      "$description": "Font family for headings"
+    }
   },
   "font-weight": {
-    "light":    { "$type": "number", "$value": 300 },
-    "regular":  { "$type": "number", "$value": 400 },
-    "medium":   { "$type": "number", "$value": 500 },
-    "semibold": { "$type": "number", "$value": 600 },
-    "bold":     { "$type": "number", "$value": 700 },
-    "extrabold":{ "$type": "number", "$value": 800 }
-  },
-  "font-size": {
-    "100":  { "$type": "dimension", "$value": "10px" },
-    "200":  { "$type": "dimension", "$value": "12px" },
-    "250":  { "$type": "dimension", "$value": "13px" },
-    "300":  { "$type": "dimension", "$value": "14px" },
-    "350":  { "$type": "dimension", "$value": "15px" },
-    "400":  { "$type": "dimension", "$value": "16px", "$description": "Base size — type scale built on major second (1.125)" },
-    "450":  { "$type": "dimension", "$value": "18px" },
-    "500":  { "$type": "dimension", "$value": "20px" },
-    "550":  { "$type": "dimension", "$value": "22px" },
-    "600":  { "$type": "dimension", "$value": "24px" },
-    "700":  { "$type": "dimension", "$value": "28px" },
-    "800":  { "$type": "dimension", "$value": "32px" },
-    "900":  { "$type": "dimension", "$value": "36px" },
-    "1000": { "$type": "dimension", "$value": "40px" },
-    "1100": { "$type": "dimension", "$value": "44px" },
-    "1200": { "$type": "dimension", "$value": "48px" },
-    "1300": { "$type": "dimension", "$value": "56px" },
-    "1400": { "$type": "dimension", "$value": "64px" },
-    "1500": { "$type": "dimension", "$value": "72px" }
-  },
-  "letter-spacing": {
-    "n100": { "$type": "number", "$value": -1, "$description": "-0.05em" },
-    "n50":  { "$type": "number", "$value": -0.5, "$description": "-0.025em" },
-    "0":    { "$type": "number", "$value": 0, "$description": "0em" },
-    "50":   { "$type": "number", "$value": 0.5, "$description": "0.025em" },
-    "100":  { "$type": "number", "$value": 1, "$description": "0.05em" },
-    "150":  { "$type": "number", "$value": 1.5, "$description": "0.1em" }
+    "medium": {
+      "$type": "number",
+      "$value": 500,
+      "$description": "500"
+    },
+    "bold": {
+      "$type": "number",
+      "$value": 700,
+      "$description": "700"
+    },
+    "semibold": {
+      "$type": "number",
+      "$value": 600,
+      "$description": "600"
+    },
+    "regular": {
+      "$type": "number",
+      "$value": 400,
+      "$description": "400"
+    },
+    "light": {
+      "$type": "number",
+      "$value": 300,
+      "$description": "400"
+    },
+    "extrabold": {
+      "$type": "number",
+      "$value": 800,
+      "$description": "700"
+    }
   }
 }

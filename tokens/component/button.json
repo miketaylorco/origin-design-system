@@ -2,25 +2,49 @@
   "button": {
     "spacing": {
       "padding-x": {
-        "sm": { "$value": "{space.inset.sm}" },
-        "md": { "$value": "{space.inset.md}" },
-        "lg": { "$value": "{space.inset.lg}" }
+        "sm": {
+          "$value": "{space.inset.sm}"
+        },
+        "md": {
+          "$value": "{space.inset.md}"
+        },
+        "lg": {
+          "$value": "{space.inset.lg}"
+        }
       },
       "padding-y": {
-        "sm": { "$value": "{space.inset.xs}" },
-        "md": { "$value": "{space.inset.sm}" },
-        "lg": { "$value": "{space.inset.md}" }
+        "sm": {
+          "$value": "{space.inset.xs}"
+        },
+        "md": {
+          "$value": "{space.inset.sm}"
+        },
+        "lg": {
+          "$value": "{space.inset.md}"
+        }
       },
-      "gap": { "$value": "{space.gap.xs}" }
+      "gap": {
+        "$value": "{space.gap.xs}"
+      }
     },
     "radius": {
-      "sm": { "$value": "{radius.sm}" },
-      "lg": { "$value": "{radius.md}" }
+      "sm": {
+        "$value": "{radius.sm}"
+      },
+      "lg": {
+        "$value": "{radius.md}"
+      }
     },
     "font-size": {
-      "sm": { "$value": "{font-size.body.sm}" },
-      "md": { "$value": "{font-size.body.md}" },
-      "lg": { "$value": "{font-size.body.lg}" }
+      "sm": {
+        "$value": "{font-size.body.sm}"
+      },
+      "md": {
+        "$value": "{font-size.body.md}"
+      },
+      "lg": {
+        "$value": "{font-size.body.lg}"
+      }
     }
   }
 }
