@@ -7,5 +7,13 @@
 @layer base {
   body {
     font-family: var(--font-family-body);
+    background-color: var(--background-page);
   }
+}
+
+/* Override Storybook's Emotion-injected background on docs story blocks so they
+   honour the active mode's --background-page token. Placed outside @layer so
+   specificity beats unlayered Emotion styles. */
+html .sbdocs-preview {
+  background-color: var(--background-page);
 }

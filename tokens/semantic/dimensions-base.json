@@ -42,5 +42,43 @@
       "$type": "dimension",
       "$value": "1px"
     }
+  },
+  "focus": {
+    "ring-width": {
+      "$value": "{border-width.sm}"
+    },
+    "ring-offset": {
+      "$type": "number",
+      "$value": 2
+    },
+    "ring-radius": {
+      "none": {
+        "$type": "dimension",
+        "$value": "2px"
+      },
+      "xs": {
+        "$type": "dimension",
+        "$value": "3px"
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "6px"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "10px"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "14px"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "18px"
+      },
+      "full": {
+        "$value": "{radius.full}"
+      }
+    }
   }
 }

@@ -9,9 +9,12 @@ const buttonVariants = cva(
   [
     "inline-flex items-center justify-center gap-[var(--button-spacing-gap)]",
     "font-medium leading-none whitespace-nowrap select-none",
-    "border transition-colors duration-150",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-    "focus-visible:ring-[var(--interaction-primary-background-default)]",
+    "border transition-colors duration-150 motion-reduce:transition-none",
+    // Focus ring — token-based outline using T3 button focus tokens
+    "focus-visible:[outline-style:solid]",
+    "focus-visible:[outline-width:var(--button-focus-ring-width)]",
+    "focus-visible:[outline-color:var(--border-focus)]",
+    "focus-visible:[outline-offset:calc(var(--button-focus-ring-offset)*1px)]",
     "disabled:pointer-events-none",
   ],
   {
@@ -52,15 +55,15 @@ const buttonVariants = cva(
       },
       size: {
         sm: [
-          "px-[var(--button-spacing-padding-x-sm)] py-[var(--button-spacing-padding-y-sm)] text-[var(--button-font-size-sm)]",
+          "px-[var(--button-spacing-padding-x-sm)] py-[var(--button-spacing-padding-y-sm)] [font-size:var(--button-font-size-sm)]",
           "rounded-[var(--button-radius-sm)]",
         ],
         md: [
-          "px-[var(--button-spacing-padding-x-md)] py-[var(--button-spacing-padding-y-md)] text-[var(--button-font-size-md)]",
+          "px-[var(--button-spacing-padding-x-md)] py-[var(--button-spacing-padding-y-md)] [font-size:var(--button-font-size-md)]",
           "rounded-[var(--button-radius-sm)]",
         ],
         lg: [
-          "px-[var(--button-spacing-padding-x-lg)] py-[var(--button-spacing-padding-y-lg)] text-[var(--button-font-size-lg)]",
+          "px-[var(--button-spacing-padding-x-lg)] py-[var(--button-spacing-padding-y-lg)] [font-size:var(--button-font-size-lg)]",
           "rounded-[var(--button-radius-lg)]",
         ],
       },
@@ -89,14 +92,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(buttonVariants({ variant, size }), className)}
-        disabled={disabled ?? loading}
+        disabled={disabled || loading}
         aria-busy={loading || undefined}
         {...props}
       >
         {loading && (
           <svg
             aria-hidden="true"
-            className="animate-spin"
+            className="animate-spin motion-reduce:animate-none"
             width="1em"
             height="1em"
             viewBox="0 0 24 24"

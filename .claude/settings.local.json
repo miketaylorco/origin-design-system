@@ -46,7 +46,24 @@
       "Bash(pnpm exec:*)",
       "mcp__figma-console__figma_clear_console",
       "mcp__figma-console__figma_watch_console",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "mcp__figma-console__figma_get_selection",
+      "Skill(sync-tokens)",
+      "mcp__figma-console__figma_get_annotation_categories",
+      "Bash(grep:*)",
+      "Bash(pnpm tsc:*)",
+      "WebFetch(domain:storybook.js.org)",
+      "Bash(npx storybook@latest upgrade --dry-run)",
+      "Bash(find /Users/miketaylor/My Websites/origin-design-system/node_modules/@storybook/blocks/dist -name *.css)",
+      "Bash(find /Users/miketaylor/My Websites/origin-design-system/node_modules/@storybook -name *.css)",
+      "Bash(find /Users/miketaylor/My Websites/origin-design-system/node_modules/.pnpm -path *storybook*blocks* -name *.css)",
+      "Bash(find /Users/miketaylor/My Websites/origin-design-system -path */node_modules/* -prune -o -name *.html -print)",
+      "Bash(find /Users/miketaylor/My Websites/origin-design-system -path */@storybook/blocks/dist* -name index*)",
+      "Bash(python3:*)",
+      "Bash(find /Users/miketaylor/My Websites/origin-design-system/packages/tokens -name *.js -o -name *.ts -o -name *.mjs)",
+      "Bash(find /Users/miketaylor/My Websites/origin-design-system/apps/storybook/storybook-static/assets -name *.css)",
+      "Bash(tr ';' '\\\\n')",
+      "Bash(find /Users/miketaylor/My Websites/origin-design-system/packages/react/src -name cn*)"
     ]
   }
 }

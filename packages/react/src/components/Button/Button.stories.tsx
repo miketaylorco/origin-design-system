@@ -11,7 +11,9 @@ const meta = {
         component:
           "The foundational action component. Available in three variants " +
           "(primary, secondary, ghost) and three sizes (sm, md, lg). " +
-          "All interactive states are driven by T2 Semantic interaction tokens.",
+          "All interactive states are driven by T2 Semantic interaction tokens. " +
+          "The focus ring uses the T2 `border/focus` colour token and T3 button focus geometry tokens " +
+          "(ring-width, ring-offset, ring-radius), rendered as a CSS outline so it adapts to each size's border radius.",
       },
     },
   },
@@ -100,3 +102,16 @@ export const FullWidth: Story = {
     </div>
   ),
 };
+
+// ─── Focus ───────────────────────────────────────────────────────────────────
+// autoFocus shows the token-driven focus ring (border/focus colour, 2px width,
+// 2px offset). The wrapper padding prevents the outline being clipped.
+
+export const Focus: Story = {
+  render: (args) => (
+    <div style={{ padding: "8px" }}>
+      <Button {...args} autoFocus>Button</Button>
+    </div>
+  ),
+};
+

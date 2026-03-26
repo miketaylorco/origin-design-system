@@ -45,6 +45,22 @@
       "lg": {
         "$value": "{font-size.body.lg}"
       }
+    },
+    "focus": {
+      "ring-width": {
+        "$value": "{focus.ring-width}"
+      },
+      "ring-offset": {
+        "$value": "{focus.ring-offset}"
+      },
+      "ring-radius": {
+        "sm": {
+          "$value": "{focus.ring-radius.sm}"
+        },
+        "lg": {
+          "$value": "{focus.ring-radius.md}"
+        }
+      }
     }
   }
 }
