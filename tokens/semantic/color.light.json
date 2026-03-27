@@ -178,7 +178,7 @@
         },
         "active": {
           "$type": "color",
-          "$value": "#f4f1f1"
+          "$value": "#deee4a"
         }
       },
       "text": {

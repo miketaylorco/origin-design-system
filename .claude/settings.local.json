@@ -63,7 +63,18 @@
       "Bash(find /Users/miketaylor/My Websites/origin-design-system/packages/tokens -name *.js -o -name *.ts -o -name *.mjs)",
       "Bash(find /Users/miketaylor/My Websites/origin-design-system/apps/storybook/storybook-static/assets -name *.css)",
       "Bash(tr ';' '\\\\n')",
-      "Bash(find /Users/miketaylor/My Websites/origin-design-system/packages/react/src -name cn*)"
+      "Bash(find /Users/miketaylor/My Websites/origin-design-system/packages/react/src -name cn*)",
+      "Bash(npx storybook@latest upgrade --yes)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm view:*)",
+      "Bash(pnpm build:*)",
+      "Bash(npx storybook:*)",
+      "Bash(npx mcp-add:*)",
+      "Bash(ls \"/Users/miketaylor/My Websites/origin-design-system/.claude/\"*)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "storybook"
+  ],
+  "enableAllProjectMcpServers": true
 }
