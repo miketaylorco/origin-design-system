@@ -70,6 +70,24 @@ Tokens follow a strict three-tier model:
 
 ---
 
+## Adding a new component
+
+After scaffolding a new component under `packages/react/src/components/`, you must build the package before the sandbox (or any other consumer) can import it:
+
+```sh
+pnpm --filter @origin/react build
+```
+
+The sandbox resolves `@origin/react` from `packages/react/dist/`, which is not committed and is not rebuilt automatically. During active component development, run the watch mode instead so `dist/` stays current automatically:
+
+```sh
+pnpm --filter @origin/react dev   # runs tsc --watch
+```
+
+You can leave this running in a background terminal alongside `pnpm sandbox` or `pnpm storybook`.
+
+---
+
 ## Common workflows
 
 | Command | Description |
@@ -113,6 +131,7 @@ Available skills (invoke with `/` in Claude Code):
 | `/drift-check` | Compare Figma variables against committed token JSON |
 | `/token-audit` | Audit token health (missing mappings, unused tokens, etc.) |
 | `/a11y-check` | WCAG 2.1 AA accessibility audit on a component |
+| `/figma-annotate` | Propose and write implementation annotations to a Figma component set |
 
 ---
 

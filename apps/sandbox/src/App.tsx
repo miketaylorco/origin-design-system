@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@origin/react";
+import { TextField } from "@origin/react";
 
 export default function App() {
   const [dark, setDark] = useState(false);
@@ -46,6 +47,16 @@ export default function App() {
           <div className="flex flex-wrap items-center gap-3">
             <Button variant="primary" size="md" disabled>Disabled</Button>
             <Button variant="primary" size="md" loading>Loading…</Button>
+          </div>
+        </section>
+
+        <section className="flex flex-col gap-4">
+          <h2 className="text-heading-xs font-semibold">
+            Simple Form
+          </h2>
+          <div className="flex flex-wrap items-center gap-3">
+            <TextField label="Name" placeholder="Enter your name" />
+            <Button variant="primary" size="md" onClick={() => alert("Button clicked!")}>Click me</Button>
           </div>
         </section>
 

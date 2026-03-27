@@ -92,7 +92,8 @@
       "Bash(pnpm --filter @origin/react test --reporter=verbose -- TextField)",
       "Bash(pnpm --filter @origin/react test -- TextField)",
       "mcp__figma-console__figma_get_annotations",
-      "Skill(figma-annotate)"
+      "Skill(figma-annotate)",
+      "Bash(pnpm --filter @origin/react build)"
     ]
   },
   "enableAllProjectMcpServers": true,
