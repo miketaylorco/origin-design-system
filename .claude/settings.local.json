@@ -80,7 +80,19 @@
       "Bash(find '/Users/miketaylor/My Websites/origin-design-system' -path */node_modules/storybook/dist -name *.js -maxdepth 8)",
       "Bash(find '/Users/miketaylor/My Websites/origin-design-system' -path */node_modules/.pnpm/*/node_modules/launch-editor -maxdepth 10 -type d)",
       "Bash(code --version)",
-      "Bash(pnpm --filter @origin/react test)"
+      "Bash(pnpm --filter @origin/react test)",
+      "mcp__storybook__list-all-documentation",
+      "mcp__design-systems__browse_by_category",
+      "mcp__design-systems__search_design_knowledge",
+      "Read(//Users/miketaylor/**)",
+      "Bash(cat /Users/miketaylor/My Websites/origin-design-system/tokens/semantic/*.json)",
+      "mcp__storybook__get-storybook-story-instructions",
+      "Bash(pnpm --filter @origin/react test --reporter=verbose)",
+      "mcp__storybook__preview-stories",
+      "Bash(pnpm --filter @origin/react test --reporter=verbose -- TextField)",
+      "Bash(pnpm --filter @origin/react test -- TextField)",
+      "mcp__figma-console__figma_get_annotations",
+      "Skill(figma-annotate)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -1,0 +1,51 @@
+{
+  "text-field": {
+    "spacing": {
+      "padding-x": {
+        "$value": "{space.inset.md}"
+      },
+      "padding-y": {
+        "$value": "{space.inset.sm}"
+      },
+      "gap": {
+        "$value": "{space.gap.xs}"
+      }
+    },
+    "radius": {
+      "$value": "{radius.sm}"
+    },
+    "font-size": {
+      "input": {
+        "$value": "{font-size.body.md}"
+      },
+      "label": {
+        "$value": "{font-size.body.sm}"
+      },
+      "helper": {
+        "$value": "{font-size.body.xs}"
+      }
+    },
+    "line-height": {
+      "input": {
+        "$value": "{line-height.body.md}"
+      },
+      "label": {
+        "$value": "{line-height.body.sm}"
+      },
+      "helper": {
+        "$value": "{line-height.body.xs}"
+      }
+    },
+    "focus": {
+      "ring-width": {
+        "$value": "{focus.ring-width}"
+      },
+      "ring-offset": {
+        "$value": "{focus.ring-offset}"
+      },
+      "ring-radius": {
+        "$value": "{focus.ring-radius.sm}"
+      }
+    }
+  }
+}

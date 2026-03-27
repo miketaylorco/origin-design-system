@@ -95,7 +95,7 @@
       },
       "border": {
         "$type": "color",
-        "$value": "#ff7572"
+        "$value": "#e0302d"
       }
     },
     "info": {
