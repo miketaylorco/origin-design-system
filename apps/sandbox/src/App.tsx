@@ -54,7 +54,7 @@ export default function App() {
           <h2 className="text-heading-xs font-semibold">
             Simple Form
           </h2>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-col items-start gap-3">
             <TextField label="Name" placeholder="Enter your name" />
             <Button variant="primary" size="md" onClick={() => alert("Button clicked!")}>Click me</Button>
           </div>
