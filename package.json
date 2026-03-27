@@ -16,7 +16,8 @@
     "build-tokens": "tsx scripts/build-tokens.ts",
     "drift-check": "tsx scripts/drift-check.ts",
     "audit": "tsx scripts/audit.ts",
-    "storybook": "turbo dev --filter=storybook"
+    "storybook": "turbo dev --filter=storybook",
+    "sandbox": "turbo dev --filter=sandbox"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.9",

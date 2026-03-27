@@ -70,11 +70,14 @@
       "Bash(pnpm build:*)",
       "Bash(npx storybook:*)",
       "Bash(npx mcp-add:*)",
-      "Bash(ls \"/Users/miketaylor/My Websites/origin-design-system/.claude/\"*)"
+      "Bash(ls \"/Users/miketaylor/My Websites/origin-design-system/.claude/\"*)",
+      "Bash(pnpm --filter=sandbox exec tsc --noEmit)",
+      "Bash(pnpm --filter=@origin/react build)",
+      "Bash(pnpm --filter=sandbox build)"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "storybook"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }
