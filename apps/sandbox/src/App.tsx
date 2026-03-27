@@ -26,6 +26,9 @@ export default function App() {
             Button
           </h2>
           <div className="flex flex-wrap items-center gap-3">
+            <Button variant="primary" size="md" onClick={() => alert("Button clicked!")}>Click me</Button>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
             <Button variant="primary" size="sm">Primary sm</Button>
             <Button variant="primary" size="md">Primary md</Button>
             <Button variant="primary" size="lg">Primary lg</Button>
@@ -46,9 +49,6 @@ export default function App() {
         </section>
 
       </div>
-
-        <Button variant="primary" size="md" onClick={() => alert("Button clicked!")}>Click me</Button>
-
     </div>
 
 
