@@ -45,6 +45,7 @@ export default function App() {
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <Button variant="primary" size="md" disabled>Disabled</Button>
+            <Button variant="primary" size="md" loading>Loading…</Button>
           </div>
         </section>
 

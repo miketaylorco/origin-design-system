@@ -90,7 +90,7 @@ export const Disabled: Story = {
 // ─── Loading ─────────────────────────────────────────────────────────────────
 
 export const Loading: Story = {
-  args: { loading: true, children: "Saving…" },
+  args: { loading: true, children: "Loading…" },
 };
 
 // ─── Full width ──────────────────────────────────────────────────────────────
