@@ -73,7 +73,14 @@
       "Bash(ls \"/Users/miketaylor/My Websites/origin-design-system/.claude/\"*)",
       "Bash(pnpm --filter=sandbox exec tsc --noEmit)",
       "Bash(pnpm --filter=@origin/react build)",
-      "Bash(pnpm --filter=sandbox build)"
+      "Bash(pnpm --filter=sandbox build)",
+      "Bash(pnpm --filter=@origin/react test -- --reporter=verbose Button)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(find '/Users/miketaylor/My Websites/origin-design-system' -path */storybook/node_modules/launch-editor -maxdepth 8)",
+      "Bash(find '/Users/miketaylor/My Websites/origin-design-system' -path */node_modules/storybook/dist -name *.js -maxdepth 8)",
+      "Bash(find '/Users/miketaylor/My Websites/origin-design-system' -path */node_modules/.pnpm/*/node_modules/launch-editor -maxdepth 10 -type d)",
+      "Bash(code --version)",
+      "Bash(pnpm --filter @origin/react test)"
     ]
   },
   "enableAllProjectMcpServers": true,

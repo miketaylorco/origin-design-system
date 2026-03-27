@@ -104,6 +104,12 @@ function setNested(obj: NestedTheme, parts: string[], value: string): void {
   cur[parts[parts.length - 1]!] = value;
 }
 
+/** Remove the first occurrence of `key` from `parts` (strips redundant category prefix). */
+function stripKey(parts: string[], key: string): string[] {
+  const idx = parts.indexOf(key);
+  return idx === -1 ? parts : [...parts.slice(0, idx), ...parts.slice(idx + 1)];
+}
+
 function buildTailwindPreset(): string {
   const colors: NestedTheme = {};
   const spacing: NestedTheme = {};
@@ -132,21 +138,21 @@ function buildTailwindPreset(): string {
           );
           if (type === "color") setNested(colors, p, cssVar);
           else if (p.some((x) => x === "inset" || x === "gap" || x === "stack"))
-            setNested(spacing, p, cssVar);
+            setNested(spacing, stripKey(p, "space"), cssVar);
           else if (p.some((x) => x === "font-size"))
-            setNested(fontSize, p, cssVar);
+            setNested(fontSize, stripKey(p, "font-size"), cssVar);
           else if (p.some((x) => x === "line-height"))
-            setNested(lineHeight, p, cssVar);
+            setNested(lineHeight, stripKey(p, "line-height"), cssVar);
           else if (p.some((x) => x === "radius"))
-            setNested(borderRadius, p, cssVar);
+            setNested(borderRadius, stripKey(p, "radius"), cssVar);
           else if (p.some((x) => x === "border-width"))
-            setNested(borderWidth, p, cssVar);
+            setNested(borderWidth, stripKey(p, "border-width"), cssVar);
           else if (p.some((x) => x === "font-family"))
-            setNested(fontFamily, p, cssVar);
+            setNested(fontFamily, stripKey(p, "font-family"), cssVar);
           else if (p.some((x) => x === "font-weight"))
-            setNested(fontWeight, p, cssVar);
+            setNested(fontWeight, stripKey(p, "font-weight"), cssVar);
           else if (p.some((x) => x === "letter-spacing"))
-            setNested(letterSpacing, p, cssVar);
+            setNested(letterSpacing, stripKey(p, "letter-spacing"), cssVar);
         }
 
         if (tier === "primitive") {
@@ -156,7 +162,7 @@ function buildTailwindPreset(): string {
           if (type === "color")
             setNested(colors, ["primitive", ...p], cssVar);
           else if (type === "string" && p.some((x) => x === "font-family"))
-            setNested(fontFamily, p, cssVar);
+            setNested(fontFamily, stripKey(p, "font-family"), cssVar);
         }
       } else if (typeof val === "object" && val !== null) {
         walk(val as Record<string, unknown>, p, tier);

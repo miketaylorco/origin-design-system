@@ -13,7 +13,7 @@ export default function App() {
     <div className="min-h-screen p-8">
       <div className="max-w-2xl mx-auto flex flex-col gap-8">
         <div className="flex items-center justify-between">
-          <h1 className="text-[length:var(--font-size-heading-lg)] font-bold">
+          <h1 className="text-heading-lg font-bold">
             Origin Sandbox
           </h1>
           <Button variant="ghost" size="sm" onClick={toggleTheme}>
@@ -22,7 +22,7 @@ export default function App() {
         </div>
 
         <section className="flex flex-col gap-4">
-          <h2 className="text-[length:var(--font-size-heading-xs)] font-semibold">
+          <h2 className="text-heading-xs font-semibold">
             Button
           </h2>
           <div className="flex flex-wrap items-center gap-3">
@@ -44,7 +44,13 @@ export default function App() {
             <Button variant="primary" size="md" disabled>Disabled</Button>
           </div>
         </section>
+
       </div>
+
+        <Button variant="primary" size="md" onClick={() => alert("Button clicked!")}>Click me</Button>
+
     </div>
+
+
   );
 }
