@@ -58,7 +58,7 @@ export default function App() {
           <div className="flex flex-col items-start gap-3">
             <TextField label="Name" placeholder="Enter your name" />
             <Button variant="primary" size="md" onClick={() => alert("Button clicked!")}>Click me</Button>
-            <Badge variant="success">Success</Badge>
+            <Badge variant="neutral">Badge</Badge>
           </div>
         </section>
 

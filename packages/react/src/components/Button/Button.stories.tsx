@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from "./Button.js";
+import { ArrowRightIcon, ArrowLeftIcon } from "../icons/index.js";
 
 const meta = {
   title: "Components/Button",
@@ -33,6 +34,14 @@ const meta = {
     },
     disabled: {
       control: "boolean",
+    },
+    iconLeft: {
+      control: false,
+      description: "Icon rendered before the label. Sized to 1em × 1em; use an SVG with fill=\"currentColor\". Colour inherits the button text token via currentColor.",
+    },
+    iconRight: {
+      control: false,
+      description: "Icon rendered after the label. Sized to 1em × 1em; use an SVG with fill=\"currentColor\". Colour inherits the button text token via currentColor.",
     },
   },
   args: {
@@ -111,6 +120,51 @@ export const Focus: Story = {
   render: (args) => (
     <div style={{ padding: "8px" }}>
       <Button {...args} autoFocus>Button</Button>
+    </div>
+  ),
+};
+
+// ─── With icon left ───────────────────────────────────────────────────────────
+// Icon is sized to 1em × 1em (matches button font-size) and inherits text
+// colour via fill="currentColor", tracking all interaction state transitions.
+
+export const WithIconLeft: Story = {
+  args: { iconLeft: <ArrowRightIcon /> },
+};
+
+// ─── With icon right ──────────────────────────────────────────────────────────
+
+export const WithIconRight: Story = {
+  args: { iconRight: <ArrowLeftIcon /> },
+};
+
+// ─── With both icons ──────────────────────────────────────────────────────────
+
+export const WithBothIcons: Story = {
+  args: { iconLeft: <ArrowLeftIcon />, iconRight: <ArrowRightIcon /> },
+};
+
+// ─── Icon variants ────────────────────────────────────────────────────────────
+// All three variants with a left icon to verify colour tokens across contexts.
+
+export const IconVariants: Story = {
+  render: (args) => (
+    <div style={{ display: "flex", gap: "var(--space-gap-sm)", flexWrap: "wrap" }}>
+      <Button {...args} variant="primary" iconLeft={<ArrowRightIcon />}>Primary</Button>
+      <Button {...args} variant="secondary" iconLeft={<ArrowRightIcon />}>Secondary</Button>
+      <Button {...args} variant="ghost" iconLeft={<ArrowRightIcon />}>Ghost</Button>
+    </div>
+  ),
+};
+
+// ─── Icon disabled ────────────────────────────────────────────────────────────
+
+export const IconDisabled: Story = {
+  render: (args) => (
+    <div style={{ display: "flex", gap: "var(--space-gap-sm)", flexWrap: "wrap" }}>
+      <Button {...args} variant="primary" iconLeft={<ArrowRightIcon />} disabled>Primary</Button>
+      <Button {...args} variant="secondary" iconLeft={<ArrowRightIcon />} disabled>Secondary</Button>
+      <Button {...args} variant="ghost" iconLeft={<ArrowRightIcon />} disabled>Ghost</Button>
     </div>
   ),
 };

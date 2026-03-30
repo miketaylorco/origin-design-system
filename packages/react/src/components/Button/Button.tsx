@@ -81,12 +81,16 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   /** Render a loading spinner and disable interaction */
   loading?: boolean;
+  /** Icon rendered before the label. Sized to 1em × 1em; use an SVG with fill="currentColor". */
+  iconLeft?: React.ReactNode;
+  /** Icon rendered after the label. Sized to 1em × 1em; use an SVG with fill="currentColor". */
+  iconRight?: React.ReactNode;
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, loading = false, disabled, children, ...props }, ref) => {
+  ({ className, variant, size, loading = false, disabled, iconLeft, iconRight, children, ...props }, ref) => {
     return (
       <button
         ref={ref}
@@ -95,6 +99,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         aria-busy={loading || undefined}
         {...props}
       >
+        {iconLeft && (
+          <span aria-hidden="true" className="shrink-0 inline-flex w-[1em] h-[1em] [&>svg]:w-full [&>svg]:h-full">
+            {iconLeft}
+          </span>
+        )}
         {loading && (
           <svg
             aria-hidden="true"
@@ -110,6 +119,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           </svg>
         )}
         {children}
+        {iconRight && (
+          <span aria-hidden="true" className="shrink-0 inline-flex w-[1em] h-[1em] [&>svg]:w-full [&>svg]:h-full">
+            {iconRight}
+          </span>
+        )}
       </button>
     );
   }

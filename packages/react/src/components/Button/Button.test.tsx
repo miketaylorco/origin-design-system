@@ -68,4 +68,12 @@ describe("Button", () => {
     const { container } = render(<Button loading>Saving</Button>);
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("has no axe violations with icons", async () => {
+    const icon = <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6" /></svg>;
+    const { container } = render(
+      <Button iconLeft={icon} iconRight={icon}>With icons</Button>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
