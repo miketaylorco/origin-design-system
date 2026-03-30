@@ -3,14 +3,29 @@
 ## Component authoring rules
 
 ### Token usage
-- **T3 component tokens** (CSS custom properties via `var(--component-...)`) for geometry: padding, border-radius, font-size, line-height, focus-ring geometry.
-- **T2 semantic tokens** via Tailwind utility classes for all colours: `bg-background-raised`, `text-text-default`, `border-border-subdued`, `text-utility-error-text`, etc.
-- **Never** use raw hex/rgb values, Tailwind's built-in colour palette (e.g. `bg-gray-100`), or T1 primitive tokens directly in components.
-- When a needed semantic colour doesn't exist, say so and propose adding it to `tokens/semantic/color.light.json` rather than reaching for a primitive.
+
+| Tier | Where | What goes here |
+|---|---|---|
+| **T2 Semantic** | `tokens/semantic/color.{light,dark}.json` | Cross-component colours: surfaces, text, borders, utility states, shared interaction scales |
+| **T3 Geometry** | `tokens/component/<name>.json` | Component-specific geometry: padding, radius, font-size, line-height, focus ring. Mode-invariant. |
+| **T3 Colour** | `tokens/component/<name>-color.{light,dark}.json` | Component-specific colours only used by one component. |
+
+**Rule:** A colour belongs in T2 only if another component could legitimately share its semantic meaning. If it's only ever consumed by one component, it's T3 — put it in `<name>-color.light.json`.
+
+In components, reference tokens via:
+- T2 colours → Tailwind utility classes: `bg-background-raised`, `text-utility-error-text`
+- T3 colours → Tailwind utility classes generated from `*.light.json`: `bg-badge-neutral-background-default`
+- T3 geometry → Tailwind arbitrary-value syntax: `px-[var(--badge-spacing-padding-x)]`
+
+**Never** use raw hex/rgb values, Tailwind's built-in colour palette (e.g. `bg-gray-100`), or T1 primitive tokens directly in components.
 
 ### File structure for each new component
 ```
-tokens/component/<component-name>.json        ← T3 tokens (add here first)
+tokens/component/<name>.json                  ← T3 geometry (padding, radius, font-size, focus ring)
+tokens/component/<name>-color.light.json      ← T3 component colours, light values
+tokens/component/<name>-color.dark.json       ← T3 component colour overrides for dark mode
+                                                 (only tokens whose values differ — aliased tokens
+                                                 resolve automatically via the T2 dark override)
 packages/react/src/components/<Name>/
   <Name>.tsx                                  ← component (forwardRef + cva + cn)
   <Name>.stories.tsx                          ← Storybook stories
@@ -18,7 +33,34 @@ packages/react/src/components/<Name>/
   index.ts                                    ← barrel export
 packages/react/src/index.ts                   ← add named export here
 ```
-After adding a `tokens/component/*.json`, run `pnpm build-tokens` to regenerate CSS/JS/Tailwind outputs.
+### Preferred authoring order
+
+Always work **Figma-first** so Figma remains the single source of truth for token values:
+
+1. **Create Figma variables** — T2 semantic colours and T3 component geometry in Figma (via Figma Console MCP)
+2. **`sync-tokens`** — pull variables into `tokens/semantic/` and `tokens/component/` JSON files
+3. **`pnpm build-tokens`** — regenerate CSS/Tailwind outputs from the synced JSON
+4. **Write the component** — use only the token classes and CSS vars that now exist in the generated outputs
+5. **Create the Figma component set** — bind all nodes to the variables created in step 1
+6. **`sync-tokens` again** — final check that no drift was introduced during component authoring
+
+Avoid the reverse (code → Figma) pattern: it creates token values that live only in the JSON files and will be silently overwritten or lost on the next sync.
+
+### Required build steps
+
+Run these in order whenever tokens or components change. Skipping any step will cause missing styles or missing exports.
+
+| Trigger | Command | Why |
+|---|---|---|
+| Any change to `tokens/**/*.json` | `pnpm build-tokens` (repo root) | Regenerates CSS custom properties, Tailwind preset, and JS token exports |
+| Any change to `packages/react/src/**` | `pnpm build` in `packages/react/` | Compiles source to `dist/` — required by Sandbox and any external consumer of `@origin/react` |
+| After `pnpm build-tokens` while Storybook is running | Restart the Storybook dev server | Storybook imports the token CSS and Tailwind preset at startup; a running server won't pick up regenerated files via HMR |
+
+**Checklist for a new component:**
+1. `pnpm build-tokens` — after writing `tokens/component/<name>.json` (and any new semantic colour tokens)
+2. `pnpm build` in `packages/react/` — after writing the component source and adding it to `src/index.ts`
+3. Restart Storybook — to see styled stories
+4. Sandbox picks up the rebuilt dist automatically on its next page load (no restart needed)
 
 ### Code patterns
 - `forwardRef` on every component; spread `...props` onto the root element.
@@ -45,6 +87,7 @@ const describedBy =
 - Every component must have `tags: ["autodocs"]` in meta.
 - Include `play` functions for interactive states (typing, focus, error trigger).
 - Use `canvas.getByRole(...)` directly — do **not** wrap `canvas` in `within()`.
+- Keep stories current: whenever a prop, token reference, or behaviour changes, update the relevant `description` strings, argType entries, and `play` functions in the same PR/change. Stale story copy (e.g. wrong token tier names, outdated prop descriptions) is a documentation bug.
 
 ### Tests (vitest + RTL + jest-axe)
 - Every component must have at least one `axe` accessibility test per meaningful state (default, error, disabled).
@@ -71,11 +114,28 @@ Code and Figma are the two sources of truth — they must stay in sync. Apply th
 5. **Variable bindings** — All geometry (padding, radius, font-size, line-height, item spacing) must be bound to T3 component variables. All colours must be bound to T2 semantic colour variables. Never use raw hex values.
 6. **Screenshot check** — After creating the component set, capture a screenshot with `figma_capture_screenshot` and confirm all variants render correctly before finishing.
 
+### When changing token structure
+
+Any time a token is **renamed, restructured, moved between tiers, or deleted** — whether the change originates in Figma or in code — verify both sides are aligned and a sync would be safe. Run through this checklist before finishing the change:
+
+1. **Figma ↔ code naming matches** — The variable name in Figma (slash-separated) must produce the same dot-separated path that the JSON files use. A Figma variable `utility/success/background/hover` syncs to `utility.success.background.hover` in JSON and `--utility-success-background-hover` in CSS. If you rename in one place, rename in the other.
+
+2. **Alias chains are intact** — If a T3 variable aliases a T2 variable, and the T2 variable was renamed, confirm the T3 variable's alias still resolves (in Figma, aliases are stored by ID so renames are safe; in JSON, aliases use dotted paths so they must be updated manually).
+
+3. **CSS var references updated** — Grep for the old CSS variable name (`--old-name`) across all source files (`.tsx`, `.ts`, `.mdx`, `.css`). Any hardcoded `var(--old-name)` references must be updated. Tailwind utility class names derived from the old path (e.g. `bg-old-name`) must also be updated in component files.
+
+4. **Sync output would match current JSON** — Mentally trace the changed variable through `sync-tokens` logic: is it T1 hidden (resolves to hex), T2/T3 non-hidden (kept as alias ref `{dotted.path}`)? Confirm the resulting value matches what is now in the JSON file. If unsure, run a dry sync and compare.
+
+5. **`pnpm build-tokens` passes cleanly** — Run it after every token structure change. A clean build confirms the CSS/Tailwind outputs are consistent with the new structure.
+
+**Scope of "structure change":** renaming a variable, restructuring a leaf into a group (e.g. `background` → `background/default`), moving a variable between collections/tiers, deleting a variable, or adding a new variable that introduces a new group level.
+
 ### When updating an existing component
 
-- If a **React prop or visual state is added/removed**: update the Figma component set variants to match.
+- If a **React prop or visual state is added/removed**: update the Figma component set variants to match, and update `<Name>.stories.tsx` — add/remove stories, update argType descriptions, and adjust any `play` functions that exercise the changed behaviour.
+- If a **token tier or token name changes**: update all string references to that token in the story file (descriptions, comments) so they stay accurate.
 - If a **T3 token is added/changed**: update the corresponding Figma variable in the `T3 Component / <Name>` collection and re-bind affected nodes.
-- If a **T2 semantic token is added**: add it to both `tokens/semantic/color.light.json` AND `tokens/semantic/color.dark.json`, then run `pnpm build-tokens`.
+- If a **T2 semantic token is added**: add it to both `tokens/semantic/color.light.json` AND `tokens/semantic/color.dark.json`, then follow the build checklist above (`pnpm build-tokens` → rebuild react package → restart Storybook).
 
 ### Figma file reference
 - File: **Origin Design System** · key `bmFwMCXLLT9SKrsm1aDijr`
@@ -99,13 +159,23 @@ Code and Figma are the two sources of truth — they must stay in sync. Apply th
 | Border subtle        | `border-border-subtle`                   |
 | Border strong        | `border-border-strong`                   |
 | Focus ring colour    | `outline-border-focus` / `border-focus`  |
-| Error background     | `bg-utility-error-background`            |
+| Error background     | `bg-utility-error-background-default`    |
+| Error bg hover       | `bg-utility-error-background-hover`      |
+| Error bg active      | `bg-utility-error-background-active`     |
 | Error text           | `text-utility-error-text`                |
 | Error border         | `border-utility-error-border`            |
-| Warning background   | `bg-utility-warning-background`          |
+| Warning background   | `bg-utility-warning-background-default`  |
+| Warning bg hover     | `bg-utility-warning-background-hover`    |
+| Warning bg active    | `bg-utility-warning-background-active`   |
 | Warning text         | `text-utility-warning-text`              |
 | Warning border       | `border-utility-warning-border`          |
+| Success background   | `bg-utility-success-background-default`  |
+| Success bg hover     | `bg-utility-success-background-hover`    |
+| Success bg active    | `bg-utility-success-background-active`   |
 | Success text         | `text-utility-success-text`              |
 | Success border       | `border-utility-success-border`          |
+| Info background      | `bg-utility-info-background-default`     |
+| Info bg hover        | `bg-utility-info-background-hover`       |
+| Info bg active       | `bg-utility-info-background-active`      |
 | Info text            | `text-utility-info-text`                 |
 | Info border          | `border-utility-info-border`             |

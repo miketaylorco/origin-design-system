@@ -199,6 +199,23 @@ function buildTailwindPreset(): string {
     );
   }
 
+  // Walk component *.light.json files for component-scoped colour utilities.
+  // These are T3 colour tokens that belong to a single component but still need
+  // Tailwind utility classes (bg-badge-*, text-badge-*, etc.).
+  const componentDir = path.join(tokensDir, "component");
+  if (fs.existsSync(componentDir)) {
+    const colorLightFiles = fs.readdirSync(componentDir)
+      .filter((f) => f.endsWith(".light.json"))
+      .map((f) => path.join(componentDir, f));
+    for (const f of colorLightFiles) {
+      walk(
+        JSON.parse(fs.readFileSync(f, "utf8")) as Record<string, unknown>,
+        [],
+        "semantic"
+      );
+    }
+  }
+
   const preset = {
     theme: {
       extend: {
@@ -320,14 +337,24 @@ async function main() {
   );
   console.log("  ✔ packages/tokens/css/responsive-mobile.css");
 
-  // ── 5. Component tokens (manual CSS — one file per component) ───────────────
+  // ── 5. Component tokens ───────────────────────────────────────────────────────
+  // Geometry files (e.g. button.json, badge.json) → :root only (mode-invariant).
+  // Colour files (e.g. badge-color.light.json / badge-color.dark.json) →
+  //   light values in :root, dark overrides in .dark {}.
   const componentDir = path.join(tokensDir, "component");
-  const componentFiles = fs.existsSync(componentDir)
+  const allComponentFiles = fs.existsSync(componentDir)
     ? fs.readdirSync(componentDir).filter((f) => f.endsWith(".json")).map((f) => path.join(componentDir, f))
     : [];
-  if (componentFiles.length > 0) {
+  if (allComponentFiles.length > 0) {
     console.log("Building component tokens…");
-    const componentCss = buildCssBlock(componentFiles, ":root");
+    const geometryFiles   = allComponentFiles.filter((f) => !f.endsWith(".light.json") && !f.endsWith(".dark.json"));
+    const colorLightFiles = allComponentFiles.filter((f) => f.endsWith(".light.json"));
+    const colorDarkFiles  = allComponentFiles.filter((f) => f.endsWith(".dark.json"));
+
+    const rootBlock = buildCssBlock([...geometryFiles, ...colorLightFiles], ":root");
+    const darkBlock = buildCssBlock(colorDarkFiles, ".dark");
+    const componentCss = [rootBlock, darkBlock].filter(Boolean).join("\n");
+
     fs.writeFileSync(path.join(cssOut, "component.css"), componentCss + "\n");
     console.log("  ✔ packages/tokens/css/component.css");
   }
@@ -340,7 +367,7 @@ async function main() {
     `@import "./responsive-tablet.css";`,
     `@import "./responsive-mobile.css";`,
   ];
-  if (componentFiles.length > 0) imports.push(`@import "./component.css";`);
+  if (allComponentFiles.length > 0) imports.push(`@import "./component.css";`);
   fs.writeFileSync(path.join(cssOut, "tokens.css"), imports.join("\n") + "\n");
   console.log("  ✔ packages/tokens/css/tokens.css");
 

@@ -3,61 +3,77 @@
     "spacing": {
       "padding-x": {
         "sm": {
+          "$type": "number",
           "$value": "{space.inset.sm}"
         },
         "md": {
+          "$type": "number",
           "$value": "{space.inset.md}"
         },
         "lg": {
+          "$type": "number",
           "$value": "{space.inset.lg}"
         }
       },
       "padding-y": {
         "sm": {
+          "$type": "number",
           "$value": "{space.inset.xs}"
         },
         "md": {
+          "$type": "number",
           "$value": "{space.inset.sm}"
         },
         "lg": {
+          "$type": "number",
           "$value": "{space.inset.md}"
         }
       },
       "gap": {
+        "$type": "number",
         "$value": "{space.gap.xs}"
       }
     },
     "radius": {
       "sm": {
+        "$type": "number",
         "$value": "{radius.sm}"
       },
       "lg": {
+        "$type": "number",
         "$value": "{radius.md}"
       }
     },
     "font-size": {
       "sm": {
+        "$type": "number",
         "$value": "{font-size.body.sm}"
       },
       "md": {
+        "$type": "number",
         "$value": "{font-size.body.md}"
       },
       "lg": {
+        "$type": "number",
         "$value": "{font-size.body.lg}"
       }
     },
     "focus": {
       "ring-width": {
+        "$type": "number",
         "$value": "{focus.ring-width}"
       },
       "ring-offset": {
+        "$type": "number",
         "$value": "{focus.ring-offset}"
       },
       "ring-radius": {
         "sm": {
+          "$type": "number",
           "$value": "{focus.ring-radius.sm}"
         },
         "lg": {
+          "$type": "number",
           "$value": "{focus.ring-radius.md}"
         }
       }

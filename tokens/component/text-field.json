@@ -2,48 +2,61 @@
   "text-field": {
     "spacing": {
       "padding-x": {
+        "$type": "number",
         "$value": "{space.inset.md}"
       },
       "padding-y": {
+        "$type": "number",
         "$value": "{space.inset.sm}"
       },
       "gap": {
+        "$type": "number",
         "$value": "{space.gap.xs}"
       }
     },
     "radius": {
+      "$type": "number",
       "$value": "{radius.sm}"
     },
     "font-size": {
       "input": {
+        "$type": "number",
         "$value": "{font-size.body.md}"
       },
       "label": {
+        "$type": "number",
         "$value": "{font-size.body.sm}"
       },
       "helper": {
+        "$type": "number",
         "$value": "{font-size.body.xs}"
       }
     },
     "line-height": {
       "input": {
+        "$type": "number",
         "$value": "{line-height.body.md}"
       },
       "label": {
+        "$type": "number",
         "$value": "{line-height.body.sm}"
       },
       "helper": {
+        "$type": "number",
         "$value": "{line-height.body.xs}"
       }
     },
     "focus": {
       "ring-width": {
+        "$type": "number",
         "$value": "{focus.ring-width}"
       },
       "ring-offset": {
+        "$type": "number",
         "$value": "{focus.ring-offset}"
       },
       "ring-radius": {
+        "$type": "number",
         "$value": "{focus.ring-radius.sm}"
       }
     }

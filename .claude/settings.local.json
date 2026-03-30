@@ -93,7 +93,11 @@
       "Bash(pnpm --filter @origin/react test -- TextField)",
       "mcp__figma-console__figma_get_annotations",
       "Skill(figma-annotate)",
-      "Bash(pnpm --filter @origin/react build)"
+      "Bash(pnpm --filter @origin/react build)",
+      "Bash(pnpm test:*)",
+      "Bash(find '/Users/miketaylor/My Websites/origin-design-system/apps' -name *.tsx -o -name *.ts)",
+      "Bash(head -10 echo \"---\" grep \"badge-success-background\\\\|badge-error-background\" \"/Users/miketaylor/My Websites/origin-design-system/packages/tokens/css/component.css\")",
+      "Bash(xxd)"
     ]
   },
   "enableAllProjectMcpServers": true,

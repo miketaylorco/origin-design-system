@@ -9,6 +9,7 @@
       "$value": "#ffffff"
     },
     "page": {
+      "$type": "color",
       "$value": "{background.default}"
     },
     "subdued": {
@@ -22,6 +23,7 @@
       "$value": "#0c0b0a"
     },
     "page": {
+      "$type": "color",
       "$value": "{text.default}"
     },
     "subdued": {
@@ -58,8 +60,18 @@
   "utility": {
     "success": {
       "background": {
-        "$type": "color",
-        "$value": "#eefeed"
+        "default": {
+          "$type": "color",
+          "$value": "#eefeed"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#ddfcdb"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#a3faa2"
+        }
       },
       "text": {
         "$type": "color",
@@ -72,8 +84,18 @@
     },
     "warning": {
       "background": {
-        "$type": "color",
-        "$value": "#fff7eb"
+        "default": {
+          "$type": "color",
+          "$value": "#fff7eb"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#ffefd7"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#ffd99a"
+        }
       },
       "text": {
         "$type": "color",
@@ -86,8 +108,18 @@
     },
     "error": {
       "background": {
-        "$type": "color",
-        "$value": "#ffedec"
+        "default": {
+          "$type": "color",
+          "$value": "#ffedec"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#ffd5d1"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#ffaea9"
+        }
       },
       "text": {
         "$type": "color",
@@ -95,13 +127,23 @@
       },
       "border": {
         "$type": "color",
-        "$value": "#e0302d"
+        "$value": "#ff7572"
       }
     },
     "info": {
       "background": {
-        "$type": "color",
-        "$value": "#ebf3fd"
+        "default": {
+          "$type": "color",
+          "$value": "#ebf3fd"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#d0e3fc"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#a6cbfa"
+        }
       },
       "text": {
         "$type": "color",

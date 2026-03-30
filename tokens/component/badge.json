@@ -1,0 +1,40 @@
+{
+  "badge": {
+    "spacing": {
+      "padding-x": {
+        "$type": "number",
+        "$value": "{space.inset.sm}"
+      },
+      "padding-y": {
+        "$type": "number",
+        "$value": "{space.inset.xs}"
+      }
+    },
+    "radius": {
+      "$type": "number",
+      "$value": "{radius.full}"
+    },
+    "font-size": {
+      "$type": "number",
+      "$value": "{font-size.body.xs}"
+    },
+    "line-height": {
+      "$type": "number",
+      "$value": "{line-height.body.xs}"
+    },
+    "focus": {
+      "ring-width": {
+        "$type": "number",
+        "$value": "{focus.ring-width}"
+      },
+      "ring-offset": {
+        "$type": "number",
+        "$value": "{focus.ring-offset}"
+      },
+      "ring-radius": {
+        "$type": "number",
+        "$value": "{focus.ring-radius.full}"
+      }
+    }
+  }
+}

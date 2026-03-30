@@ -92,8 +92,10 @@ export const EXTRACTION_CODE = `
             // Resolve hidden primitive to its raw value (use first/only mode).
             return toW3C(ref, Object.values(ref.valuesByMode)[0]);
           }
-          // Non-hidden target — keep as an alias reference.
-          return { ${'$'}value: \`{\${ref.name.split('/').map(p => p.trim().toLowerCase().replace(/\\s+/g, '-')).join('.')}}\` };
+          // Non-hidden target — keep as an alias reference, preserving the source type.
+          const typeMap = { COLOR: 'color', FLOAT: 'number', STRING: 'string' };
+          const aliasType = typeMap[variable.resolvedType] || variable.resolvedType.toLowerCase();
+          return { ${'$'}type: aliasType, ${'$'}value: \`{\${ref.name.split('/').map(p => p.trim().toLowerCase().replace(/\\s+/g, '-')).join('.')}}\` };
         }
       }
       return rawToken(variable, value);
@@ -151,7 +153,7 @@ export const EXTRACTION_CODE = `
           else fileKey = n.replace(/[^a-z0-9]/g, '-') + modeSuffix;
         } else if (n.includes('t3') || n.includes('component')) {
           dir = 'component';
-          fileKey = col.name.replace(/^T3\\s+Component\\s*\\/\\s*/i, '').replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase() || 'tokens';
+          fileKey = (col.name.replace(/^T3\\s+Component\\s*\\/\\s*/i, '').replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase() || 'tokens') + modeSuffix;
           if (col.variableIds.length === 0) continue;
         } else {
           dir = 'misc';

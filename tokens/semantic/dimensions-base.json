@@ -45,6 +45,7 @@
   },
   "focus": {
     "ring-width": {
+      "$type": "number",
       "$value": "{border-width.sm}"
     },
     "ring-offset": {
@@ -77,6 +78,7 @@
         "$value": "18px"
       },
       "full": {
+        "$type": "number",
         "$value": "{radius.full}"
       }
     }

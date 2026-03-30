@@ -1,0 +1,124 @@
+{
+  "badge": {
+    "neutral": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{background.subdued}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#181515"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "#302c2c"
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{text.default}"
+      }
+    },
+    "brand": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{interaction.primary.background.default}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{interaction.primary.background.hover}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{interaction.primary.background.active}"
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{interaction.primary.text.default}"
+      }
+    },
+    "success": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{utility.success.background.default}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{utility.success.background.hover}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{utility.success.background.active}"
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{utility.success.text}"
+      }
+    },
+    "error": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{utility.error.background.default}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{utility.error.background.hover}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{utility.error.background.active}"
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{utility.error.text}"
+      }
+    },
+    "warning": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{utility.warning.background.default}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{utility.warning.background.hover}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{utility.warning.background.active}"
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{utility.warning.text}"
+      }
+    },
+    "info": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{utility.info.background.default}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{utility.info.background.hover}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{utility.info.background.active}"
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{utility.info.text}"
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@origin/react";
 import { TextField } from "@origin/react";
+import { Badge } from "@origin/react";
 
 export default function App() {
   const [dark, setDark] = useState(false);
@@ -57,6 +58,7 @@ export default function App() {
           <div className="flex flex-col items-start gap-3">
             <TextField label="Name" placeholder="Enter your name" />
             <Button variant="primary" size="md" onClick={() => alert("Button clicked!")}>Click me</Button>
+            <Badge variant="success">Success</Badge>
           </div>
         </section>
 
