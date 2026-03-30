@@ -99,7 +99,8 @@
       "Bash(head -10 echo \"---\" grep \"badge-success-background\\\\|badge-error-background\" \"/Users/miketaylor/My Websites/origin-design-system/packages/tokens/css/component.css\")",
       "Bash(xxd)",
       "mcp__figma-console__figma_batch_create_variables",
-      "Bash(find ~/.claude -name *.md)"
+      "Bash(find ~/.claude -name *.md)",
+      "mcp__storybook__get-documentation"
     ]
   },
   "enableAllProjectMcpServers": true,

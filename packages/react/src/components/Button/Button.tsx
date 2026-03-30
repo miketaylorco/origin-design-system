@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/cn.js";
+import { SpinnerScaleIcon } from "../icons/SpinnerScaleIcon.js";
 
 // ─── Variants ─────────────────────────────────────────────────────────────────
 
@@ -81,9 +82,9 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   /** Render a loading spinner and disable interaction */
   loading?: boolean;
-  /** Icon rendered before the label. Sized to 1em × 1em; use an SVG with fill="currentColor". */
+  /** Icon rendered before the label. Sized to 0.875em on sm, 1em on md/lg; use an SVG with fill="currentColor". */
   iconLeft?: React.ReactNode;
-  /** Icon rendered after the label. Sized to 1em × 1em; use an SVG with fill="currentColor". */
+  /** Icon rendered after the label. Sized to 0.875em on sm, 1em on md/lg; use an SVG with fill="currentColor". */
   iconRight?: React.ReactNode;
 }
 
@@ -91,6 +92,12 @@ export interface ButtonProps
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, loading = false, disabled, iconLeft, iconRight, children, ...props }, ref) => {
+    // sm icons are fixed at 18px to match Figma — 1em (14px) allows SVGs with a
+    // 20px intrinsic viewBox to override the percentage-height constraint in some
+    // flex contexts, increasing the button's height unexpectedly.
+    const iconSize = size === "sm" ? "w-[0.875em] h-[0.875em]" : "w-[1em] h-[1em]";
+    const spinnerSize = size === "sm" ? "0.875em" : "1em";
+
     return (
       <button
         ref={ref}
@@ -100,27 +107,20 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {iconLeft && (
-          <span aria-hidden="true" className="shrink-0 inline-flex w-[1em] h-[1em] [&>svg]:w-full [&>svg]:h-full">
+          <span aria-hidden="true" className={cn("shrink-0 inline-flex [&>svg]:w-full [&>svg]:h-full", iconSize)}>
             {iconLeft}
           </span>
         )}
         {loading && (
-          <svg
-            aria-hidden="true"
-            className="animate-spin motion-reduce:animate-none"
-            width="1em"
-            height="1em"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2.5}
-          >
-            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-          </svg>
+          <SpinnerScaleIcon
+            className="animate-spin motion-reduce:animate-none shrink-0"
+            width={spinnerSize}
+            height={spinnerSize}
+          />
         )}
         {children}
         {iconRight && (
-          <span aria-hidden="true" className="shrink-0 inline-flex w-[1em] h-[1em] [&>svg]:w-full [&>svg]:h-full">
+          <span aria-hidden="true" className={cn("shrink-0 inline-flex [&>svg]:w-full [&>svg]:h-full", iconSize)}>
             {iconRight}
           </span>
         )}

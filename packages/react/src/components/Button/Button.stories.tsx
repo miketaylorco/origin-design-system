@@ -36,11 +36,13 @@ const meta = {
       control: "boolean",
     },
     iconLeft: {
-      control: false,
+      control: "boolean",
+      mapping: { true: <ArrowLeftIcon />, false: undefined },
       description: "Icon rendered before the label. Sized to 1em × 1em; use an SVG with fill=\"currentColor\". Colour inherits the button text token via currentColor.",
     },
     iconRight: {
-      control: false,
+      control: "boolean",
+      mapping: { true: <ArrowRightIcon />, false: undefined },
       description: "Icon rendered after the label. Sized to 1em × 1em; use an SVG with fill=\"currentColor\". Colour inherits the button text token via currentColor.",
     },
   },
@@ -50,6 +52,8 @@ const meta = {
     size: "md",
     loading: false,
     disabled: false,
+    iconLeft: false,
+    iconRight: false,
   },
 } satisfies Meta<typeof Button>;
 
