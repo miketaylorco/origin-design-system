@@ -1,6 +1,6 @@
 ---
 description: Pull icon SVGs from Figma and generate React icon components
-allowed-tools: Bash(pnpm *), Bash(git diff --stat *), Bash(git diff *), mcp__figma-console__figma_get_status, mcp__figma-console__figma_execute, Read, Write
+allowed-tools: Bash(pnpm *), Bash(git diff --stat *), Bash(git diff *), mcp__figma-console__figma_get_status, mcp__figma-console__figma_execute, Read, Write, Edit
 ---
 
 Sync icon components from the Figma Icons page into the React package, then rebuild.
@@ -87,3 +87,24 @@ Run `git diff --stat packages/react/src/components/icons/`. Summarise:
 - Flag anything unexpected — e.g. an icon that disappeared, or a viewBox that changed.
 
 Keep the summary to one line per icon unless something needs explanation.
+
+### 10. Update Icons.stories.tsx
+
+**Always run this step** — even if no icons changed — to keep the stories file in sync.
+
+Read `packages/react/src/components/icons/index.ts` and extract every exported component name
+(e.g. `AngleDownIcon`, `CloseIcon`, …). Sort them alphabetically.
+
+Rewrite `packages/react/src/components/icons/Icons.stories.tsx` so that:
+
+1. The import statement imports every icon from `"./index.js"` (one named import per icon,
+   sorted alphabetically).
+2. The `icons` registry array contains one entry per icon — `{ name: "XIcon", component: XIcon }`
+   — sorted alphabetically by name.
+3. Everything else in the file (Meta, `AllIcons`, `Sizes`, `Colours` stories, comments,
+   formatting) is preserved exactly as-is.
+
+Use the **Write** tool to rewrite the whole file so the import and registry always stay complete.
+
+The `@storybook/addon-mcp` Storybook MCP is read-only (search / inspect stories); file editing
+is the correct mechanism to keep the icons page current in Storybook.

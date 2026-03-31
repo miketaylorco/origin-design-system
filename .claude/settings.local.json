@@ -100,7 +100,8 @@
       "Bash(xxd)",
       "mcp__figma-console__figma_batch_create_variables",
       "Bash(find ~/.claude -name *.md)",
-      "mcp__storybook__get-documentation"
+      "mcp__storybook__get-documentation",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:6006/mcp)"
     ]
   },
   "enableAllProjectMcpServers": true,

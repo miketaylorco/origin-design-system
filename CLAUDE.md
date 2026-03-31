@@ -38,11 +38,12 @@ packages/react/src/index.ts                   ← add named export here
 Always work **Figma-first** so Figma remains the single source of truth for token values:
 
 1. **Create Figma variables** — T2 semantic colours and T3 component geometry in Figma (via Figma Console MCP)
-2. **`sync-tokens`** — pull variables into `tokens/semantic/` and `tokens/component/` JSON files
-3. **`pnpm build-tokens`** — regenerate CSS/Tailwind outputs from the synced JSON
-4. **Write the component** — use only the token classes and CSS vars that now exist in the generated outputs
-5. **Create the Figma component set** — bind all nodes to the variables created in step 1
-6. **`sync-tokens` again** — final check that no drift was introduced during component authoring
+2. **Create the Figma component set** — bind all nodes to the variables created in step 1; capture a screenshot and present it to the user
+3. **Wait for confirmation** — do not proceed to any code steps until the user has reviewed the Figma variables and component set and explicitly confirmed they are correct
+4. **`sync-tokens`** — pull variables into `tokens/semantic/` and `tokens/component/` JSON files
+5. **`pnpm build-tokens`** — regenerate CSS/Tailwind outputs from the synced JSON
+6. **Write the component** — use only the token classes and CSS vars that now exist in the generated outputs
+7. **`sync-tokens` again** — final check that no drift was introduced during component authoring
 
 Avoid the reverse (code → Figma) pattern: it creates token values that live only in the JSON files and will be silently overwritten or lost on the next sync.
 
@@ -61,6 +62,8 @@ Run these in order whenever tokens or components change. Skipping any step will 
 2. `pnpm build` in `packages/react/` — after writing the component source and adding it to `src/index.ts`
 3. Restart Storybook — to see styled stories
 4. Sandbox picks up the rebuilt dist automatically on its next page load (no restart needed)
+5. Run `/a11y-check` on the new component — fix any failures before considering the component done
+6. Run `/figma-annotate` on the new component's Figma component set — keeps Figma spec in sync with the implementation
 
 ### Code patterns
 - `forwardRef` on every component; spread `...props` onto the root element.
