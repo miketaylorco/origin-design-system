@@ -1,0 +1,60 @@
+{
+  "alert": {
+    "success": {
+      "background": {
+        "$type": "color",
+        "$value": "{utility.success.background.default}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{utility.success.text}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{utility.success.border}"
+      }
+    },
+    "warning": {
+      "background": {
+        "$type": "color",
+        "$value": "{utility.warning.background.default}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{utility.warning.text}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{utility.warning.border}"
+      }
+    },
+    "error": {
+      "background": {
+        "$type": "color",
+        "$value": "{utility.error.background.default}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{utility.error.text}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{utility.error.border}"
+      }
+    },
+    "info": {
+      "background": {
+        "$type": "color",
+        "$value": "{utility.info.background.default}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{utility.info.text}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{utility.info.border}"
+      }
+    }
+  }
+}

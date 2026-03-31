@@ -101,7 +101,13 @@
       "mcp__figma-console__figma_batch_create_variables",
       "Bash(find ~/.claude -name *.md)",
       "mcp__storybook__get-documentation",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:6006/mcp)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:6006/mcp)",
+      "Bash(find ./tokens -type f -name *.json)",
+      "Bash(xargs du:*)",
+      "Bash(/tmp/test_write_issue.md:*)",
+      "Bash(/tmp/detailed_changes.txt:*)",
+      "Bash(/tmp/FINAL_REPORT.txt:*)",
+      "Bash(/tmp/FILES_AND_PATHS.txt:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

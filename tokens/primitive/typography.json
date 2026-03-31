@@ -2,37 +2,45 @@
   "font-family": {
     "body": {
       "$type": "string",
-      "$value": "Onest"
+      "$value": "Onest",
+      "$description": "Font family for body text"
     },
     "heading": {
       "$type": "string",
-      "$value": "Onest"
+      "$value": "Onest",
+      "$description": "Font family for headings"
     }
   },
   "font-weight": {
     "medium": {
       "$type": "number",
-      "$value": 500
+      "$value": 500,
+      "$description": "500"
     },
     "bold": {
       "$type": "number",
-      "$value": 700
+      "$value": 700,
+      "$description": "700"
     },
     "semibold": {
       "$type": "number",
-      "$value": 600
+      "$value": 600,
+      "$description": "600"
     },
     "regular": {
       "$type": "number",
-      "$value": 400
+      "$value": 400,
+      "$description": "400"
     },
     "light": {
       "$type": "number",
-      "$value": 300
+      "$value": 300,
+      "$description": "400"
     },
     "extrabold": {
       "$type": "number",
-      "$value": 800
+      "$value": 800,
+      "$description": "700"
     }
   }
 }

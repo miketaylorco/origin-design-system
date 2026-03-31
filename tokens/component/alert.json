@@ -1,0 +1,62 @@
+{
+  "alert": {
+    "spacing": {
+      "padding-x": {
+        "$type": "number",
+        "$value": "{space.inset.lg}"
+      },
+      "padding-y": {
+        "$type": "number",
+        "$value": "{space.inset.md}"
+      },
+      "gap": {
+        "$type": "number",
+        "$value": "{space.gap.sm}"
+      }
+    },
+    "radius": {
+      "$type": "number",
+      "$value": "{radius.md}"
+    },
+    "font-size": {
+      "title": {
+        "$type": "number",
+        "$value": "{font-size.body.sm}"
+      },
+      "message": {
+        "$type": "number",
+        "$value": "{font-size.body.sm}"
+      }
+    },
+    "line-height": {
+      "title": {
+        "$type": "number",
+        "$value": "{line-height.body.sm}"
+      },
+      "message": {
+        "$type": "number",
+        "$value": "{line-height.body.sm}"
+      }
+    },
+    "icon": {
+      "size": {
+        "$type": "dimension",
+        "$value": "20px"
+      }
+    },
+    "focus": {
+      "ring-width": {
+        "$type": "number",
+        "$value": "{focus.ring-width}"
+      },
+      "ring-offset": {
+        "$type": "number",
+        "$value": "{focus.ring-offset}"
+      },
+      "ring-radius": {
+        "$type": "number",
+        "$value": "{focus.ring-radius.sm}"
+      }
+    }
+  }
+}

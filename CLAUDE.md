@@ -114,8 +114,9 @@ Code and Figma are the two sources of truth — they must stay in sync. Apply th
    - Size: element width/height + 2 × 3 px on each axis.
    - `strokeAlign: 'CENTER'`, stroke bound to `border/focus` (T2), weight and radius bound to T3 component focus tokens.
    - The element's own border stays at its **default colour** in the focused state — do not change it to the focus colour.
-5. **Variable bindings** — All geometry (padding, radius, font-size, line-height, item spacing) must be bound to T3 component variables. All colours must be bound to T2 semantic colour variables. Never use raw hex values.
-6. **Screenshot check** — After creating the component set, capture a screenshot with `figma_capture_screenshot` and confirm all variants render correctly before finishing.
+5. **Icons in Figma** — When a component uses icons, always use existing Figma icon components (search the Icons page via `figma_search_components`). If a relevant icon exists, instantiate it. If no suitable icon exists, use the `icon/placeholder` component — never draw new vectors from scratch or reconstruct SVG paths from the React icon source files.
+6. **Variable bindings** — All geometry (padding, radius, font-size, line-height, item spacing) must be bound to T3 component variables. All colours must be bound to T2 semantic colour variables. Never use raw hex values.
+7. **Screenshot check** — After creating the component set, capture a screenshot with `figma_capture_screenshot` and confirm all variants render correctly before finishing.
 
 ### When changing token structure
 
