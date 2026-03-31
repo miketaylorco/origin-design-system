@@ -1,0 +1,224 @@
+{
+  "avatar": {
+    "size": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "40px"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "56px"
+      }
+    },
+    "icon-size": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "24px"
+      }
+    },
+    "font-size": {
+      "sm": {
+        "$type": "number",
+        "$value": "{font-size.body.xs}"
+      },
+      "md": {
+        "$type": "number",
+        "$value": "{font-size.body.sm}"
+      },
+      "lg": {
+        "$type": "number",
+        "$value": "{font-size.body.lg}"
+      }
+    },
+    "radius": {
+      "$type": "number",
+      "$value": "{radius.full}"
+    },
+    "focus": {
+      "ring-width": {
+        "$type": "number",
+        "$value": "{focus.ring-width}"
+      },
+      "ring-offset": {
+        "$type": "number",
+        "$value": "{focus.ring-offset}"
+      },
+      "ring-radius": {
+        "$type": "number",
+        "$value": "{focus.ring-radius.full}"
+      }
+    },
+    "neutral": {
+      "background": {
+        "$type": "color",
+        "$value": "{background.subdued}"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "{text.subdued}"
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "{background.raised}"
+      }
+    },
+    "lilac": {
+      "background": {
+        "$type": "color",
+        "$value": "#f3f1f8"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#533a78"
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "#e3deef"
+      }
+    },
+    "rose": {
+      "background": {
+        "$type": "color",
+        "$value": "#ffedf1"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#831546"
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "#ffd4df"
+      }
+    },
+    "sunset": {
+      "background": {
+        "$type": "color",
+        "$value": "#feeee9"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#7c2c0f"
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "#fed7ca"
+      }
+    },
+    "honey": {
+      "background": {
+        "$type": "color",
+        "$value": "#fef0dc"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#61430d"
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "#fddbaa"
+      }
+    },
+    "lime": {
+      "background": {
+        "$type": "color",
+        "$value": "#effd95"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#484e0c"
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "#deee4a"
+      }
+    },
+    "emerald": {
+      "background": {
+        "$type": "color",
+        "$value": "#ddfbe5"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#0e582f"
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "#a7f7bf"
+      }
+    },
+    "aqua": {
+      "background": {
+        "$type": "color",
+        "$value": "#cffdfa"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#005654"
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "#69fbf6"
+      }
+    },
+    "cerulean": {
+      "background": {
+        "$type": "color",
+        "$value": "#e6f5fc"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#00516e"
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "#c3e7fa"
+      }
+    },
+    "blue": {
+      "background": {
+        "$type": "color",
+        "$value": "#eef2fc"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#1f2dbc"
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "#d7e1fa"
+      }
+    },
+    "purple": {
+      "background": {
+        "$type": "color",
+        "$value": "#f5effd"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#631f92"
+      },
+      "background-hover": {
+        "$type": "color",
+        "$value": "#e9d9fa"
+      }
+    },
+    "image": {
+      "overlay-hover": {
+        "$type": "color",
+        "$value": "#5241414d"
+      }
+    }
+  }
+}

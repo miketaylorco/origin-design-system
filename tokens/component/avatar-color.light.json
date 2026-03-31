@@ -1,0 +1,62 @@
+{
+  "avatar": {
+    "neutral": {
+      "background":       { "$type": "color", "$value": "{background.subdued}" },
+      "background-hover": { "$type": "color", "$value": "{background.raised}" },
+      "foreground":       { "$type": "color", "$value": "{text.subdued}" }
+    },
+    "lilac": {
+      "background":       { "$type": "color", "$value": "#f3f1f8" },
+      "background-hover": { "$type": "color", "$value": "#e3deef" },
+      "foreground":       { "$type": "color", "$value": "#533a78" }
+    },
+    "rose": {
+      "background":       { "$type": "color", "$value": "#ffedf1" },
+      "background-hover": { "$type": "color", "$value": "#ffd4df" },
+      "foreground":       { "$type": "color", "$value": "#831546" }
+    },
+    "sunset": {
+      "background":       { "$type": "color", "$value": "#feeee9" },
+      "background-hover": { "$type": "color", "$value": "#fed7ca" },
+      "foreground":       { "$type": "color", "$value": "#7c2c0f" }
+    },
+    "honey": {
+      "background":       { "$type": "color", "$value": "#fef0dc" },
+      "background-hover": { "$type": "color", "$value": "#fddbaa" },
+      "foreground":       { "$type": "color", "$value": "#61430d" }
+    },
+    "lime": {
+      "background":       { "$type": "color", "$value": "#effd95" },
+      "background-hover": { "$type": "color", "$value": "#deee4a" },
+      "foreground":       { "$type": "color", "$value": "#484e0c" }
+    },
+    "emerald": {
+      "background":       { "$type": "color", "$value": "#ddfbe5" },
+      "background-hover": { "$type": "color", "$value": "#a7f7bf" },
+      "foreground":       { "$type": "color", "$value": "#0e582f" }
+    },
+    "aqua": {
+      "background":       { "$type": "color", "$value": "#cffdfa" },
+      "background-hover": { "$type": "color", "$value": "#69fbf6" },
+      "foreground":       { "$type": "color", "$value": "#005654" }
+    },
+    "cerulean": {
+      "background":       { "$type": "color", "$value": "#e6f5fc" },
+      "background-hover": { "$type": "color", "$value": "#c3e7fa" },
+      "foreground":       { "$type": "color", "$value": "#00516e" }
+    },
+    "blue": {
+      "background":       { "$type": "color", "$value": "#eef2fc" },
+      "background-hover": { "$type": "color", "$value": "#d7e1fa" },
+      "foreground":       { "$type": "color", "$value": "#1f2dbc" }
+    },
+    "purple": {
+      "background":       { "$type": "color", "$value": "#f5effd" },
+      "background-hover": { "$type": "color", "$value": "#e9d9fa" },
+      "foreground":       { "$type": "color", "$value": "#631f92" }
+    },
+    "image": {
+      "overlay-hover": { "$type": "color", "$value": "#5241414d" }
+    }
+  }
+}

@@ -11,3 +11,6 @@ export type { TextFieldProps } from "./components/TextField/index.js";
 
 export { Alert } from "./components/Alert/index.js";
 export type { AlertProps, AlertVariant } from "./components/Alert/index.js";
+
+export { Avatar } from "./components/Avatar/index.js";
+export type { AvatarProps, AvatarSize, AvatarColor } from "./components/Avatar/index.js";

@@ -107,7 +107,8 @@
       "Bash(/tmp/test_write_issue.md:*)",
       "Bash(/tmp/detailed_changes.txt:*)",
       "Bash(/tmp/FINAL_REPORT.txt:*)",
-      "Bash(/tmp/FILES_AND_PATHS.txt:*)"
+      "Bash(/tmp/FILES_AND_PATHS.txt:*)",
+      "mcp__figma-console__figma_arrange_component_set"
     ]
   },
   "enableAllProjectMcpServers": true,
